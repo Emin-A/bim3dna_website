@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import Douwe from '../../assets/Douwe.png'
 import Alen from '../../assets/Alen.png'
+import Douwe from '../../assets/Douwe.png'
+import Emin from '../../assets/me.jpg'
 import Logo2 from '../../assets/Logo2.png'
 import Logo3 from '../../assets/Logo3.png'
 import Logo7 from '../../assets/Logo7.png'
@@ -39,7 +40,7 @@ const teamTestimonials: TeamTestimonial[] = [
     role: 'BIM Automation Specialist',
     quote:
       '"Custom tooling and scripts should simplify coordination. Our approach removes friction so teams can focus on delivery."',
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
+    image: Emin,
   },
 ]
 
@@ -65,9 +66,41 @@ const clientTestimonials: ClientTestimonial[] = [
     title: 'Director',
     company: 'VDW Engineering',
   },
+  {
+    quote:
+      '"The template overhaul standardised every office. Our designers now start with curated content and never worry about parameter drift."',
+    name: 'Laila N.',
+    title: 'BIM Manager',
+    company: 'TechSquare',
+  },
+  {
+    quote:
+      '"Clash coordination reports were concise and actionable. Install crews always knew the next priority and change orders dropped dramatically."',
+    name: 'Tomas E.',
+    title: 'Construction Director',
+    company: 'ConstructIQ',
+  },
+  {
+    quote:
+      '"Their lifecycle dashboards give us long-term visibility into maintenance budgeting. Data stays connected after handover."',
+    name: 'Karim W.',
+    title: 'Facility Lead',
+    company: 'MetroWorks',
+  },
 ]
 
 const logos = [Logo7, Logo2, Logo3]
+
+const useLoopingSlice = <T,>(items: T[], length: number, startIndex: number): T[] => {
+  if (items.length <= length) {
+    return items
+  }
+  const result: T[] = []
+  for (let i = 0; i < length; i += 1) {
+    result.push(items[(startIndex + i) % items.length])
+  }
+  return result
+}
 
 function AboutSection() {
   const [teamIndex, setTeamIndex] = useState(0)
@@ -76,13 +109,13 @@ function AboutSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setClientIndex((prev) => (prev + 1) % clientTestimonials.length)
-    }, 7000)
+    }, 8000)
 
     return () => clearInterval(timer)
   }, [])
 
-  const activeClient = useMemo(
-    () => clientTestimonials[clientIndex],
+  const activeClientSet = useMemo(
+    () => useLoopingSlice(clientTestimonials, 4, clientIndex),
     [clientIndex],
   )
 
@@ -96,10 +129,10 @@ function AboutSection() {
   }
 
   return (
-    <section id="about" className="bg-black py-24 text-white">
-      <div className="mx-auto max-w-6xl px-6 space-y-20">
+    <section id="about" className="bg-[#020b0c] py-24 text-white">
+      <div className="mx-auto max-w-6xl space-y-20 px-6">
         <div className="space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-300">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-accent">
             About BIM3DNA
           </p>
           <h2 className="max-w-3xl text-3xl font-semibold md:text-4xl">
@@ -112,7 +145,7 @@ function AboutSection() {
           </p>
         </div>
 
-        <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-8 shadow-soft">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
           <div className="flex items-center justify-between pb-6">
@@ -123,14 +156,14 @@ function AboutSection() {
               <button
                 type="button"
                 onClick={() => handleTeamNavigate('prev')}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-emerald-300 hover:text-emerald-200"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent"
               >
                 {'<'}
               </button>
               <button
                 type="button"
                 onClick={() => handleTeamNavigate('next')}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-emerald-300 hover:text-emerald-200"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent"
               >
                 {'>'}
               </button>
@@ -139,26 +172,24 @@ function AboutSection() {
 
           <div className="overflow-hidden">
             <div
-              className="flex gap-6 transition-transform duration-700 ease-out"
+              className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${teamIndex * 100}%)` }}
             >
               {teamTestimonials.map((testimonial) => (
                 <div
                   key={testimonial.name}
-                  className="min-w-full rounded-2xl border border-white/10 bg-black/40 p-8 md:min-w-[calc(100%/1.1)]"
+                  className="min-w-full rounded-2xl border border-white/10 bg-white/[0.04] p-8"
                 >
                   <p className="text-lg text-white/90">{testimonial.quote}</p>
                   <div className="mt-6 flex items-center gap-4">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="h-12 w-12 rounded-full object-cover"
+                      className="h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70"
                       loading="lazy"
                     />
                     <div>
-                      <p className="text-sm font-semibold text-white">
-                        {testimonial.name}
-                      </p>
+                      <p className="text-sm font-semibold text-white">{testimonial.name}</p>
                       <p className="text-xs uppercase tracking-[0.3em] text-white/50">
                         {testimonial.role}
                       </p>
@@ -170,45 +201,56 @@ function AboutSection() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] py-10">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black via-black/60 to-transparent" />
-          <div className="flex animate-marquee items-center gap-16 px-12">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] py-10">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black via-black/40 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black via-black/40 to-transparent" />
+          <div className="mask-fade-x mask-fade-y flex animate-marquee items-center gap-16 px-12">
             {[...logos, ...logos].map((logo, index) => (
               <img
                 key={`${logo}-${index}`}
                 src={logo}
                 alt="Client logo"
-                className="h-10 w-auto opacity-80"
+                className="h-12 w-auto opacity-80 transition hover:opacity-100"
                 loading="lazy"
               />
             ))}
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-10 text-center">
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-10">
+          <div className="mb-6 flex items-center justify-between">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">
               Client reflections
             </h3>
-            <p className="text-xl text-white/90 transition-opacity duration-700 ease-out">
-              {activeClient.quote}
-            </p>
-            <div className="space-y-1 text-sm text-white/70">
-              <p className="font-semibold text-white">{activeClient.name}</p>
-              <p>{activeClient.title}</p>
-              <p className="text-white/50">{activeClient.company}</p>
-            </div>
-            <div className="flex justify-center gap-2 pt-4">
-              {clientTestimonials.map((testimonial, index) => (
+            <div className="flex gap-2">
+              {clientTestimonials.map((_, index) => (
                 <button
-                  key={testimonial.name}
+                  key={index}
                   type="button"
                   onClick={() => setClientIndex(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition ${clientIndex === index ? 'bg-emerald-400' : 'bg-white/20 hover:bg-white/40'}`}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    clientIndex === index ? 'bg-brand-accent' : 'bg-white/15 hover:bg-white/30'
+                  }`}
+                  aria-label={`Show testimonial group ${index + 1}`}
                 />
               ))}
             </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {activeClientSet.map((testimonial) => (
+              <figure
+                key={testimonial.name}
+                className="rounded-3xl border border-white/10 bg-black/40 p-6 text-left text-sm leading-relaxed text-white/80 transition hover:border-brand-accent/50 hover:bg-black/60"
+              >
+                <blockquote className="text-sm text-white/90">{testimonial.quote}</blockquote>
+                <figcaption className="mt-4 space-y-1 text-xs uppercase tracking-[0.2em] text-white/50">
+                  <p className="text-sm font-semibold normal-case text-white">{testimonial.name}</p>
+                  <p>{testimonial.title}</p>
+                  <p>{testimonial.company}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </div>

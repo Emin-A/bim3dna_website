@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import favicon32 from '../../assets/logo_favicon_06/favicon-32x32.png'
+import logoMark from '../../assets/BIM3DNA Thumbnail.png'
 
 const navItems = [
   { label: 'Projects', type: 'route', target: '/projects' },
-  { label: 'Services', type: 'section', target: 'services' },
   { label: 'About Us', type: 'section', target: 'about' },
 ]
 
@@ -41,17 +40,15 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-banner-gradient backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white">
           <img
-            src={favicon32}
-            alt="BIM3DNA logo"
-            className="h-8 w-8 rounded"
+            src={logoMark}
+            alt="BIM3DNA mark"
+            className="h-10 w-10 rounded-lg shadow-lg shadow-black/40 ring-1 ring-white/20"
           />
-          <span className="hidden text-sm font-semibold uppercase tracking-[0.4em] text-white sm:block">
-            BIM3DNA
-          </span>
+          <span>BIM3DNA</span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-white md:flex">
@@ -60,7 +57,7 @@ function Header() {
               key={item.label}
               type="button"
               onClick={() => handleNavClick(item)}
-              className="relative text-sm uppercase tracking-[0.25em] text-white/80 transition hover:text-emerald-300"
+              className="relative text-sm uppercase tracking-[0.25em] text-white/80 transition hover:text-brand-accent"
             >
               {item.label}
             </button>
@@ -88,13 +85,13 @@ function Header() {
       {isMobileOpen && (
         <div className="md:hidden">
           <div className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm" />
-          <div className="fixed inset-x-0 top-16 z-50 space-y-4 border-t border-white/10 bg-black px-6 py-6">
+          <div className="fixed inset-x-0 top-16 z-50 space-y-4 border-t border-white/10 bg-banner-gradient px-6 py-6">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 type="button"
                 onClick={() => handleNavClick(item)}
-                className="block w-full rounded-full border border-white/10 px-4 py-3 text-left text-sm font-medium uppercase tracking-[0.3em] text-white/90 transition hover:border-emerald-300 hover:text-emerald-200"
+                className="block w-full rounded-full border border-white/10 px-4 py-3 text-left text-sm font-medium uppercase tracking-[0.3em] text-white/90 transition hover:border-brand-accent/60 hover:text-brand-accent"
               >
                 {item.label}
               </button>

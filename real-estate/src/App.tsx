@@ -3,6 +3,8 @@ import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
+import ProjectsCategory from './pages/ProjectsCategory'
+import Disclaimer from './pages/Disclaimer'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:categorySlug" element={<ProjectsCategory />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
       </main>
       <Footer />

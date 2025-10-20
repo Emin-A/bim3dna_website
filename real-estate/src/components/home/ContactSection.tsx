@@ -15,8 +15,8 @@ function ContactSection() {
   }
 
   return (
-    <section className="bg-[#f5f5f5] py-24">
-      <div className="mx-auto max-w-5xl rounded-3xl border border-black/[0.06] bg-white p-10 shadow-sm">
+    <section className="bg-[#e5fbf8] py-24">
+      <div className="mx-auto max-w-5xl rounded-3xl border border-black/[0.04] bg-white p-10 shadow-bevel">
         <div className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gray-500">
             Start a conversation
@@ -38,7 +38,7 @@ function ContactSection() {
                 type="text"
                 required
                 placeholder="Your name"
-                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-black focus:bg-white"
+                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-brand-accent focus:bg-white"
               />
             </div>
             <div className="space-y-2">
@@ -51,7 +51,7 @@ function ContactSection() {
                 type="email"
                 required
                 placeholder="you@email.com"
-                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-black focus:bg-white"
+                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-brand-accent focus:bg-white"
               />
             </div>
             <div className="space-y-2">
@@ -63,7 +63,7 @@ function ContactSection() {
                 name="company"
                 type="text"
                 placeholder="Organisation (optional)"
-                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-black focus:bg-white"
+                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-brand-accent focus:bg-white"
               />
             </div>
             <div className="space-y-2">
@@ -74,7 +74,7 @@ function ContactSection() {
                 id="interest"
                 name="interest"
                 defaultValue={inquiryOptions[0].value}
-                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-black focus:bg-white"
+                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-brand-accent focus:bg-white"
               >
                 {inquiryOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -95,7 +95,7 @@ function ContactSection() {
                 rows={8}
                 required
                 placeholder="Share project requirements, timelines, or your experience."
-                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-black focus:bg-white"
+                className="w-full rounded-2xl border border-black/[0.06] bg-[#f8f8f8] px-4 py-3 text-sm text-black outline-none transition focus:border-brand-accent focus:bg-white"
               />
             </div>
             <div className="mt-6 flex items-center justify-between">
@@ -104,13 +104,13 @@ function ContactSection() {
               </p>
               <button
                 type="submit"
-                className="rounded-full border border-black bg-black px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-transparent hover:text-black"
+                className="rounded-full border border-brand-accent bg-brand-accent px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-transparent hover:text-brand-accent"
               >
                 Send message
               </button>
             </div>
             {status === 'submitted' && (
-              <p className="mt-4 text-sm font-medium text-emerald-600">
+              <p className="mt-4 text-sm font-medium text-brand-accent">
                 Thanks for reaching out - we&apos;ll be in touch shortly.
               </p>
             )}
