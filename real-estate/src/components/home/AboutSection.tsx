@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useLanguage } from '../../context/LanguageContext'
+import type { Language } from '../../i18n/languages'
 import Alen from '../../assets/Alen.png'
 import Douwe from '../../assets/Douwe.png'
 import Emin from '../../assets/me.jpg'
@@ -8,88 +10,136 @@ import Logo7 from '../../assets/Logo7.png'
 
 type TeamTestimonial = {
   name: string
-  role: string
-  quote: string
+  role: Record<Language, string>
+  quote: Record<Language, string>
   image: string
 }
 
 type ClientTestimonial = {
-  quote: string
+  quote: Record<Language, string>
   name: string
-  title: string
+  title: Record<Language, string>
   company: string
 }
 
 const teamTestimonials: TeamTestimonial[] = [
   {
     name: 'Douwe O.',
-    role: 'MEP Specialist & Instructor',
-    quote:
-      '"I translate complex MEP systems into intuitive Revit models, making installations readable for every project stakeholder."',
+    role: {
+      en: 'MEP specialist & instructor',
+      nl: 'MEP-specialist & trainer',
+    },
+    quote: {
+      en: '“I translate complex installation systems into intuitive Revit models so every fitter and engineer understands the build.”',
+      nl: '“Ik vertaal complexe installaties naar intuïtieve Revit-modellen zodat iedere monteur en engineer begrijpt hoe het gebouwd wordt.”',
+    },
     image: Douwe,
   },
   {
     name: 'Alen H.',
-    role: 'Founder & Lead BIM Consultant',
-    quote:
-      '"BIM3DNA blends design, automation, and AI so teams can move faster with clarity from concept to handover."',
+    role: {
+      en: 'Founder & lead BIM consultant',
+      nl: 'Oprichter & lead BIM-consultant',
+    },
+    quote: {
+      en: '“BIM3DNA combines coordination, automation, and site insight so installation partners can deliver without surprises.”',
+      nl: '“BIM3DNA combineert coördinatie, automatisering en bouwplaatsinzicht zodat installatiepartners zonder verrassingen kunnen opleveren.”',
+    },
     image: Alen,
   },
   {
     name: 'Emin A.',
-    role: 'BIM Automation Specialist',
-    quote:
-      '"Custom tooling and scripts should simplify coordination. Our approach removes friction so teams can focus on delivery."',
+    role: {
+      en: 'BIM automation specialist',
+      nl: 'BIM-automatiseerder',
+    },
+    quote: {
+      en: '“Custom tooling should remove friction. Our scripts keep models compliant, data tidy, and install teams confident.”',
+      nl: '“Maatwerkscripts horen frictie weg te nemen. Onze tooling houdt modellen conform, data netjes en installatieteams zeker.”',
+    },
     image: Emin,
   },
 ]
 
 const clientTestimonials: ClientTestimonial[] = [
   {
-    quote:
-      '"BIM3DNA made a measurable difference in our workflow, saving time and reducing design errors. The team\'s technical depth and proactivity are unrivaled."',
+    quote: {
+      en: '“BIM3DNA cut weeks from coordination. Prefab partners received install kits that were buildable on day one.”',
+      nl: '“BIM3DNA verkortte de coördinatie met weken. Prefab-partners kregen installatiesets die vanaf dag één uitvoerbaar waren.”',
+    },
     name: 'John M.',
-    title: 'Project Manager',
+    title: { en: 'Project Manager', nl: 'Projectmanager' },
     company: 'ArchiCore Group',
   },
   {
-    quote:
-      '"Their automation tools kept our Revit library consistent across regions. The support and documentation gave our teams complete confidence."',
+    quote: {
+      en: '“Automation kept our Revit libraries aligned across regions. Standards stuck without extra policing.”',
+      nl: '“Automatisering hield onze Revit-bibliotheken in meerdere landen gelijk. Standaarden bleven geborgd zonder extra controle.”',
+    },
     name: 'Sara K.',
-    title: 'Lead BIM Coordinator',
+    title: { en: 'Lead BIM Coordinator', nl: 'Lead BIM-coördinator' },
     company: 'MEP+Design',
   },
   {
-    quote:
-      '"Scan to BIM deliverables were exact, thorough, and ready for coordination. We moved into design six weeks faster than projected."',
+    quote: {
+      en: '“Scan to BIM output was precise and annotated for the install crew. Renovation shutdown time halved.”',
+      nl: '“Scan-to-BIM output was exact en voorzien van annotaties voor de installateurs. De renovatiestilstand halveerde.”',
+    },
     name: 'Peter V.',
-    title: 'Director',
+    title: { en: 'Director', nl: 'Directeur' },
     company: 'VDW Engineering',
   },
   {
-    quote:
-      '"The template overhaul standardised every office. Our designers now start with curated content and never worry about parameter drift."',
+    quote: {
+      en: '“Template governance finally made our installation content reliable. New hires hit the ground running.”',
+      nl: '“Dankzij template-governance is onze installatiecontent eindelijk betrouwbaar. Nieuwe collega’s konden meteen aan de slag.”',
+    },
     name: 'Laila N.',
-    title: 'BIM Manager',
+    title: { en: 'BIM Manager', nl: 'BIM-manager' },
     company: 'TechSquare',
   },
   {
-    quote:
-      '"Clash coordination reports were concise and actionable. Install crews always knew the next priority and change orders dropped dramatically."',
+    quote: {
+      en: '“Clash reviews were structured around the install schedule. Crews always knew the next priority.”',
+      nl: '“Clashreviews waren afgestemd op de installatieschema’s. Teams wisten altijd wat de volgende prioriteit was.”',
+    },
     name: 'Tomas E.',
-    title: 'Construction Director',
+    title: { en: 'Construction Director', nl: 'Directeur uitvoering' },
     company: 'ConstructIQ',
   },
   {
-    quote:
-      '"Their lifecycle dashboards give us long-term visibility into maintenance budgeting. Data stays connected after handover."',
+    quote: {
+      en: '“Lifecycle dashboards connected install data to maintenance. Facility teams finally trust the model.”',
+      nl: '“Lifecycle-dashboards koppelden installatiedata aan onderhoud. Beheerteams vertrouwen nu op het model.”',
+    },
     name: 'Karim W.',
-    title: 'Facility Lead',
+    title: { en: 'Facility Lead', nl: 'Hoofd facilitair' },
     company: 'MetroWorks',
   },
 ]
 
 const logos = [Logo7, Logo2, Logo3]
+
+const copy = {
+  en: {
+    eyebrow: 'About BIM3DNA',
+    heading: 'Installation-focused BIM specialists with automation in our DNA.',
+    body: 'We operate as an advisory bureau for installation contractors—pairing coordination expertise, automation, and lifecycle insight so mechanical and electrical teams deliver with confidence.',
+    teamTitle: 'Team perspectives',
+    clientsTitle: 'Client reflections',
+    previous: 'Previous',
+    next: 'Next',
+  },
+  nl: {
+    eyebrow: 'Over BIM3DNA',
+    heading: 'Installatiegerichte BIM-specialisten met automatisering in het DNA.',
+    body: 'Wij werken als adviesbureau voor installateurs en aannemers. Met coördinatie-expertise, automatisering en lifecycle-inzicht zorgen we dat werktuigbouwkundige en elektrotechnische teams zeker leveren.',
+    teamTitle: 'Teamreflecties',
+    clientsTitle: 'Klantervaringen',
+    previous: 'Vorige',
+    next: 'Volgende',
+  },
+}
 
 const useLoopingSlice = <T,>(items: T[], length: number, startIndex: number): T[] => {
   if (items.length <= length) {
@@ -105,6 +155,8 @@ const useLoopingSlice = <T,>(items: T[], length: number, startIndex: number): T[
 function AboutSection() {
   const [teamIndex, setTeamIndex] = useState(0)
   const [clientIndex, setClientIndex] = useState(0)
+  const { language } = useLanguage()
+  const labels = copy[language]
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -129,70 +181,66 @@ function AboutSection() {
   }
 
   return (
-    <section id="about" className="bg-[#020b0c] py-24 text-white">
-      <div className="mx-auto max-w-6xl space-y-20 px-6">
-        <div className="space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-accent">
-            About BIM3DNA
+    <section id='about' className='bg-[radial-gradient(circle_at_top,_rgba(20,37,39,0.8),_#050f11)] py-24 text-white'>
+      <div className='mx-auto max-w-6xl space-y-16 px-6'>
+        <div className='space-y-4'>
+          <p className='text-xs font-semibold uppercase tracking-[0.4em] text-brand-accent'>
+            {labels.eyebrow}
           </p>
-          <h2 className="max-w-3xl text-3xl font-semibold md:text-4xl">
-            Specialists in BIM strategies, automation, and lifecycle intelligence.
-          </h2>
-          <p className="max-w-3xl text-sm text-white/70">
-            Our collective pairs technical depth with design sensibility. We lead complex BIM
-            initiatives across architecture, engineering, and construction - delivering clarity,
-            automation, and reliable digital twins.
-          </p>
+          <h2 className='max-w-3xl text-3xl font-semibold md:text-4xl'>{labels.heading}</h2>
+          <p className='max-w-3xl text-sm text-white/70'>{labels.body}</p>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-8 shadow-soft">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
-          <div className="flex items-center justify-between pb-6">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50">
-              Team perspectives
+        <div className='space-y-6'>
+          <div className='flex flex-wrap items-center justify-between gap-4 border-l-4 border-brand-accent/70 pl-6'>
+            <h3 className='text-sm font-semibold uppercase tracking-[0.3em] text-white/70'>
+              {labels.teamTitle}
             </h3>
-            <div className="flex gap-2">
+            <div className='flex gap-2'>
               <button
-                type="button"
+                type='button'
                 onClick={() => handleTeamNavigate('prev')}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent"
+                className='flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent'
+                aria-label={labels.previous}
               >
                 {'<'}
               </button>
               <button
-                type="button"
+                type='button'
                 onClick={() => handleTeamNavigate('next')}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent"
+                className='flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent'
+                aria-label={labels.next}
               >
                 {'>'}
               </button>
             </div>
           </div>
 
-          <div className="overflow-hidden">
+          <div className='overflow-hidden'>
             <div
-              className="flex transition-transform duration-700 ease-out"
+              className='flex transition-transform duration-700 ease-out'
               style={{ transform: `translateX(-${teamIndex * 100}%)` }}
             >
               {teamTestimonials.map((testimonial) => (
                 <div
                   key={testimonial.name}
-                  className="min-w-full rounded-2xl border border-white/10 bg-white/[0.04] p-8"
+                  className='min-w-full px-0'
                 >
-                  <p className="text-lg text-white/90">{testimonial.quote}</p>
-                  <div className="mt-6 flex items-center gap-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70"
-                      loading="lazy"
-                    />
-                    <div>
-                      <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                      <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-                        {testimonial.role}
-                      </p>
+                  <div className='space-y-4 border-l-2 border-brand-accent/60 pl-6'>
+                    <p className='text-lg text-white/90'>{testimonial.quote[language]}</p>
+                    <div className='flex items-center gap-4'>
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className='h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70'
+                        loading='lazy'
+                      />
+                      <div>
+                        <p className='text-sm font-semibold text-white'>{testimonial.name}</p>
+                        <p className='text-xs uppercase tracking-[0.3em] text-white/50'>
+                          {testimonial.role[language]}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,52 +249,52 @@ function AboutSection() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] py-10">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black via-black/40 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black via-black/40 to-transparent" />
-          <div className="mask-fade-x mask-fade-y flex animate-marquee items-center gap-16 px-12">
+        <div className='py-10'>
+          <div className='mask-fade-x mask-fade-y flex animate-marquee items-center gap-16'>
             {[...logos, ...logos].map((logo, index) => (
               <img
                 key={`${logo}-${index}`}
                 src={logo}
-                alt="Client logo"
-                className="h-12 w-auto opacity-80 transition hover:opacity-100"
-                loading="lazy"
+                alt='Client logo'
+                className='h-12 w-auto opacity-80 transition hover:opacity-100'
+                loading='lazy'
               />
             ))}
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-10">
-          <div className="mb-6 flex items-center justify-between">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">
-              Client reflections
+        <div className='space-y-6'>
+          <div className='flex flex-wrap items-center justify-between gap-4 border-l-4 border-brand-accent/70 pl-6'>
+            <h3 className='text-sm font-semibold uppercase tracking-[0.3em] text-white/70'>
+              {labels.clientsTitle}
             </h3>
-            <div className="flex gap-2">
+            <div className='flex gap-2'>
               {clientTestimonials.map((_, index) => (
                 <button
                   key={index}
-                  type="button"
+                  type='button'
                   onClick={() => setClientIndex(index)}
                   className={`h-2.5 w-2.5 rounded-full transition ${
                     clientIndex === index ? 'bg-brand-accent' : 'bg-white/15 hover:bg-white/30'
                   }`}
-                  aria-label={`Show testimonial group ${index + 1}`}
+                  aria-label={`${language === 'en' ? 'Show testimonial group' : 'Toon testimonialgroep'} ${
+                    index + 1
+                  }`}
                 />
               ))}
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <div className='grid gap-6 sm:grid-cols-2 xl:grid-cols-4'>
             {activeClientSet.map((testimonial) => (
               <figure
                 key={testimonial.name}
-                className="rounded-3xl border border-white/10 bg-black/40 p-6 text-left text-sm leading-relaxed text-white/80 transition hover:border-brand-accent/50 hover:bg-black/60"
+                className='space-y-3 border-l-2 border-brand-accent/60 pl-5 text-left text-sm leading-relaxed text-white/80'
               >
-                <blockquote className="text-sm text-white/90">{testimonial.quote}</blockquote>
-                <figcaption className="mt-4 space-y-1 text-xs uppercase tracking-[0.2em] text-white/50">
-                  <p className="text-sm font-semibold normal-case text-white">{testimonial.name}</p>
-                  <p>{testimonial.title}</p>
+                <blockquote className='text-sm text-white/90'>{testimonial.quote[language]}</blockquote>
+                <figcaption className='mt-4 space-y-1 text-xs uppercase tracking-[0.2em] text-white/50'>
+                  <p className='text-sm font-semibold normal-case text-white'>{testimonial.name}</p>
+                  <p>{testimonial.title[language]}</p>
                   <p>{testimonial.company}</p>
                 </figcaption>
               </figure>

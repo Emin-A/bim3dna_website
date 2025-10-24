@@ -1,16 +1,37 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logoMark from '../../assets/BIM3DNA Thumbnail.png'
+import logoMark from '../../assets/BIM3DNA Logo Final 7.png'
+import LanguageToggle from '../common/LanguageToggle'
+import { useLanguage } from '../../context/LanguageContext'
 
-const navItems = [
-  { label: 'Projects', type: 'route', target: '/projects' },
-  { label: 'About Us', type: 'section', target: 'about' },
+type NavKey = keyof typeof copy.en.nav
+
+const navItems: { key: NavKey; type: 'route' | 'section'; target: string }[] = [
+  { key: 'projects', type: 'route', target: '/projects' },
+  { key: 'about', type: 'section', target: 'about' },
 ]
+
+const copy = {
+  en: {
+    nav: {
+      projects: 'Projects',
+      about: 'About Us',
+    },
+  },
+  nl: {
+    nav: {
+      projects: 'Projecten',
+      about: 'Over ons',
+    },
+  },
+}
 
 function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const labels = copy[language]
 
   useEffect(() => {
     if (isMobileOpen) {
@@ -42,26 +63,33 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-banner-gradient backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white">
+        <Link
+          to="/"
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white"
+        >
           <img
             src={logoMark}
             alt="BIM3DNA mark"
-            className="h-10 w-10 rounded-lg shadow-lg shadow-black/40 ring-1 ring-white/20"
+            className="h-12 w-auto"
           />
-          <span>BIM3DNA</span>
+          <span className="sr-only">BIM3DNA</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-white md:flex">
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              type="button"
-              onClick={() => handleNavClick(item)}
-              className="relative text-sm uppercase tracking-[0.25em] text-white/80 transition hover:text-brand-accent"
-            >
-              {item.label}
-            </button>
-          ))}
+        <nav className="hidden items-center gap-6 text-sm font-medium text-white md:flex">
+          {navItems.map((item) => {
+            const label = labels.nav[item.key]
+            return (
+              <button
+                key={item.key}
+                type="button"
+                onClick={() => handleNavClick(item)}
+                className="relative text-sm uppercase tracking-[0.25em] text-white/80 transition hover:text-brand-accent"
+              >
+                {label}
+              </button>
+            )
+          })}
+          <LanguageToggle />
         </nav>
 
         <button
@@ -86,19 +114,26 @@ function Header() {
         <div className="md:hidden">
           <div className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm" />
           <div className="fixed inset-x-0 top-16 z-50 space-y-4 border-t border-white/10 bg-banner-gradient px-6 py-6">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                type="button"
-                onClick={() => handleNavClick(item)}
-                className="block w-full rounded-full border border-white/10 px-4 py-3 text-left text-sm font-medium uppercase tracking-[0.3em] text-white/90 transition hover:border-brand-accent/60 hover:text-brand-accent"
-              >
-                {item.label}
-              </button>
-            ))}
+            <div className="space-y-4">
+              {navItems.map((item) => {
+                const label = labels.nav[item.key]
+                return (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => handleNavClick(item)}
+                    className="block w-full rounded-full border border-white/10 px-4 py-3 text-left text-sm font-medium uppercase tracking-[0.3em] text-white/90 transition hover:border-brand-accent/60 hover:text-brand-accent"
+                  >
+                    {label}
+                  </button>
+                )
+              })}
+              <LanguageToggle />
+            </div>
           </div>
         </div>
       )}
+      <span className="block h-1 w-full bg-gradient-to-r from-brand-accent via-brand-accent/80 to-brand-accent/60 shadow-[0_0_12px_rgba(21,212,196,0.35)]" />
     </header>
   )
 }
