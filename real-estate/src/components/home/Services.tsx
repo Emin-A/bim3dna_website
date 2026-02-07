@@ -8,18 +8,24 @@ const copy = {
     coreBusinessHeading: 'Advisory bureau driving installation delivery.',
     coreBusinessBody:
       'BIM3DNA partners with mechanical, electrical, and piping contractors to steer coordination, prefabrication, and commissioning. Our business is guiding installations from the first brief to site handover.',
+    coreBusinessVision: '',
     coreServicesLabel: 'Core services',
     coreServicesHeading: 'Specialist skills that keep installation models reliable.',
+    coreServicesBody:
+      'These service pillars are the skills we mobilise to execute installation programmes - whether that means site-ready coordination sets, generative content, or lifecycle dashboards.',
     cardPrefix: 'BIM',
     viewProjects: 'View projects',
   },
   nl: {
     coreBusinessLabel: 'Kernactiviteiten',
-    coreBusinessHeading: 'Adviesbureau voor installaties in uitvoering.',
+    coreBusinessHeading: 'Installatietechnische partner',
     coreBusinessBody:
-      'BIM3DNA werkt samen met werktuigbouwkundige, elektrotechnische en piping-aannemers om coordinatie, prefabricatie en inbedrijfstelling te sturen. Onze kernactiviteit is installaties begeleiden van eerste briefing tot oplevering.',
+      'Wij leveren hoogwaardige 3D BIM modellen en installatieadviezen die kloppen tot in de details. Met onze technische expertise en praktijkervaring zorgen we voor betrouwbare infromatie in elke fase van het bouwproces - van ontwerp tot beheer.',
+    coreBusinessVision:
+      'Wij willen de meest vertrouwde BIM partner zijn voor installatietechniek. Door nauwkeurige digitale modellen te combineren met doordacht technisch advies creeren we gebouwen die efficienter, duurzamer en toekomstbestendig worden gerealiseerd en beheerd.',
     coreServicesLabel: 'Kernservices',
-    coreServicesHeading: 'Specialismen die installatiemodellen betrouwbaar houden.',
+    coreServicesHeading: 'Modelleren en adviseren in de installatietechniek',
+    coreServicesBody: 'BIM coordinatie, centralisatie, ILS informatie en procesautomatisatie',
     cardPrefix: 'BIM',
     viewProjects: 'Bekijk projecten',
   },
@@ -44,11 +50,24 @@ function Services() {
             </p>
             <h2 className='text-3xl font-semibold md:text-4xl'>{labels.coreBusinessHeading}</h2>
           </div>
-          <p className='text-sm text-gray-600'>{labels.coreBusinessBody}</p>
+          {language === 'nl' ? (
+            <div className='space-y-4 text-sm text-gray-600'>
+              <p>
+                <span className='font-semibold text-black'>- Missie -</span>
+              </p>
+              <p>{labels.coreBusinessBody}</p>
+              <p>
+                <span className='font-semibold text-black'>- Visie -</span>
+              </p>
+              <p>{labels.coreBusinessVision}</p>
+            </div>
+          ) : (
+            <p className='text-sm text-gray-600'>{labels.coreBusinessBody}</p>
+          )}
         </div>
 
         <div className='mt-16 rounded-3xl bg-white p-8 shadow-soft'>
-          <div className='flex flex-col gap-6 md:flex-row md:items-end md:justify-between'>
+          <div className='grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-center'>
             <div className='space-y-4'>
               <p className='text-xs font-semibold uppercase tracking-[0.4em] text-gray-500'>
                 {labels.coreServicesLabel}
@@ -57,10 +76,8 @@ function Services() {
                 {labels.coreServicesHeading}
               </h3>
             </div>
-            <p className='max-w-xl text-sm text-gray-600'>
-              {language === 'en'
-                ? 'These service pillars are the skills we mobilise to execute installation programmes - whether that means site-ready coordination sets, generative content, or lifecycle dashboards.'
-                : 'Deze servicepijlers zijn de vaardigheden die we inzetten om installaties uit te voeren - van uitvoeringsgereed coordinatiemateriaal tot generatieve content en lifecycle-dashboards.'}
+            <p className='mx-auto max-w-2xl text-center text-base font-semibold text-gray-800 md:text-lg'>
+              {labels.coreServicesBody}
             </p>
           </div>
         </div>

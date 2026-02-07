@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logoMark from '../../assets/BIM3DNA Logo Final 7.png'
 import LanguageToggle from '../common/LanguageToggle'
 import { useLanguage } from '../../context/LanguageContext'
@@ -8,7 +8,7 @@ type NavKey = keyof typeof copy.en.nav
 
 const navItems: { key: NavKey; type: 'route' | 'section'; target: string }[] = [
   { key: 'projects', type: 'route', target: '/projects' },
-  { key: 'about', type: 'section', target: 'about' },
+  { key: 'about', type: 'route', target: '/about' },
 ]
 
 const copy = {
@@ -28,7 +28,6 @@ const copy = {
 
 function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const location = useLocation()
   const navigate = useNavigate()
   const { language } = useLanguage()
   const labels = copy[language]
@@ -41,28 +40,14 @@ function Header() {
     }
   }, [isMobileOpen])
 
-  const handleSectionNav = (target: string) => {
-    if (location.pathname === '/') {
-      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/', { state: { scrollTo: target } })
-    }
-    setIsMobileOpen(false)
-  }
-
   const handleNavClick = (item: (typeof navItems)[number]) => {
-    if (item.type === 'route') {
-      navigate(item.target)
-      setIsMobileOpen(false)
-      return
-    }
-
-    handleSectionNav(item.target)
+    navigate(item.target)
+    setIsMobileOpen(false)
   }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-banner-gradient backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link
           to="/"
           className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white"
@@ -70,7 +55,7 @@ function Header() {
           <img
             src={logoMark}
             alt="BIM3DNA mark"
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
           <span className="sr-only">BIM3DNA</span>
         </Link>
@@ -93,7 +78,7 @@ function Header() {
         </nav>
 
         <button
-          className="relative h-10 w-10 rounded-full border border-white/20 text-white md:hidden"
+          className="relative h-11 w-11 rounded-full border border-white/20 text-white md:hidden"
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setIsMobileOpen((prev) => !prev)}
@@ -113,7 +98,7 @@ function Header() {
       {isMobileOpen && (
         <div className="md:hidden">
           <div className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm" />
-          <div className="fixed inset-x-0 top-16 z-50 space-y-4 border-t border-white/10 bg-banner-gradient px-6 py-6">
+          <div className="fixed inset-x-0 top-20 z-50 space-y-4 border-t border-white/10 bg-banner-gradient px-6 py-6">
             <div className="space-y-4">
               {navItems.map((item) => {
                 const label = labels.nav[item.key]

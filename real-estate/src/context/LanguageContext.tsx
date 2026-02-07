@@ -14,7 +14,7 @@ type LanguageProviderProps = {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguage] = useState<Language>('en')
+  const [language, setLanguage] = useState<Language>('nl')
 
   useEffect(() => {
     document.documentElement.lang = language

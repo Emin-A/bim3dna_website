@@ -19,6 +19,7 @@ export default function LanguageToggle({ variant = 'header' }: LanguageTogglePro
   const { language, toggleLanguage } = useLanguage()
 
   const nextLanguage: Language = language === 'en' ? 'nl' : 'en'
+  const isDutch = language === 'nl'
 
   return (
     <button
@@ -27,9 +28,9 @@ export default function LanguageToggle({ variant = 'header' }: LanguageTogglePro
       className={`${buttonBase} ${variantStyles[variant]}`}
       aria-label={`Switch to ${languageNames[nextLanguage]}`}
     >
-      <span>{languageLabels[language]}</span>
+      <span className={isDutch ? 'text-white' : 'text-white/60'}>{languageLabels.nl}</span>
       <span className='mx-2 h-4 w-px bg-white/20' aria-hidden />
-      <span className='text-white/60'>{languageLabels[nextLanguage]}</span>
+      <span className={isDutch ? 'text-white/60' : 'text-white'}>{languageLabels.en}</span>
     </button>
   )
 }

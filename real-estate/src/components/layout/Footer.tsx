@@ -74,7 +74,7 @@ function Footer() {
     {
       title: labels.company,
       items: [
-        { label: labels.about, href: 'about', type: 'section' },
+        { label: labels.about, href: '/about', type: 'internal' },
         { label: labels.projects, href: '/projects', type: 'internal' },
         { label: labels.disclaimer, href: '/disclaimer', type: 'internal' },
       ],

@@ -249,7 +249,7 @@ function AboutSection() {
           </div>
         </div>
 
-        <div className='py-10'>
+        <div className='overflow-hidden rounded-2xl border border-white/10 bg-black/20 px-6 py-8'>
           <div className='mask-fade-x mask-fade-y flex animate-marquee items-center gap-16'>
             {[...logos, ...logos].map((logo, index) => (
               <img

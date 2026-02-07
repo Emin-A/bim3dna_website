@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { serviceCategories } from '../../data/catalog'
 import { useLanguage } from '../../context/LanguageContext'
 
@@ -11,17 +11,17 @@ const copy = {
       'We lead mechanical, electrical, and piping coordination with the digital clarity your installers need on day one.',
     buttons: [
       { label: 'Projects', type: 'route' as const, target: '/projects' },
-      { label: 'About Us', type: 'section' as const, target: 'about' },
+      { label: 'About Us', type: 'route' as const, target: '/about' },
     ],
   },
   nl: {
-    eyebrow: 'Installatieadviesbureau',
-    heading: 'Ingebouwde intelligentie voor elk installatiemodel.',
+    eyebrow: 'Installatietechnische partner',
+    heading: 'BIM 3D specialist in de\ninstallatietechniek',
     description:
-      'Wij begeleiden werktuigbouwkundige, elektrotechnische en piping-coördinatie met de digitale duidelijkheid die monteurs vanaf dag één nodig hebben.',
+      'Geintregeerde intelligente in installatiemodellen gestandaardiseerde en gecentraliseerde modellen voor al uw projecten',
     buttons: [
       { label: 'Projecten', type: 'route' as const, target: '/projects' },
-      { label: 'Over ons', type: 'section' as const, target: 'about' },
+      { label: 'Over ons', type: 'route' as const, target: '/about' },
     ],
   },
 }
@@ -29,7 +29,6 @@ const copy = {
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
   const navigate = useNavigate()
-  const location = useLocation()
   const { language } = useLanguage()
   const labels = copy[language]
 
@@ -60,16 +59,7 @@ function Hero() {
   }, [activeIndex, slides.length])
 
   const handleButton = (button: (typeof labels.buttons)[number]) => {
-    if (button.type === 'route') {
-      navigate(button.target)
-      return
-    }
-
-    if (location.pathname === '/') {
-      document.getElementById(button.target)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/', { state: { scrollTo: button.target } })
-    }
+    navigate(button.target)
   }
 
   return (
@@ -91,18 +81,20 @@ function Hero() {
       </div>
 
       <div className='mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center gap-12 px-6 py-24'>
-        <div className='space-y-6'>
-          <span className='inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.4em] text-brand-accent'>
-            {labels.eyebrow}
-            <span className='block h-px w-16 bg-brand-accent/60' />
-          </span>
-          <h1 className='text-4xl font-semibold uppercase tracking-[0.12em] text-white md:text-5xl'>
-            {labels.heading}
-          </h1>
-          <p className='max-w-2xl text-lg text-white/80 transition-opacity duration-700 ease-out'>
-            {activeSlide?.headline ?? labels.description}
-          </p>
-          <p className='max-w-2xl text-base text-white/70'>{labels.description}</p>
+        <div className='grid items-center gap-10 lg:grid-cols-[1fr_auto]'>
+          <div className='space-y-6'>
+            <span className='inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.4em] text-brand-accent'>
+              {labels.eyebrow}
+              <span className='block h-px w-16 bg-brand-accent/60' />
+            </span>
+            <h1 className='whitespace-pre-line text-4xl font-semibold uppercase tracking-[0.12em] text-white md:text-5xl'>
+              {labels.heading}
+            </h1>
+            <p className='max-w-2xl text-lg text-white/80 transition-opacity duration-700 ease-out'>
+              {activeSlide?.headline ?? labels.description}
+            </p>
+            <p className='max-w-2xl text-base text-white/70'>{labels.description}</p>
+          </div>
         </div>
 
         <div className='flex flex-col gap-4 sm:flex-row'>
