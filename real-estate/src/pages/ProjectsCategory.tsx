@@ -104,7 +104,7 @@ function ProjectsCategory() {
                 key={project.id}
                 className='grid gap-8 rounded-3xl border border-white/10 bg-white/[0.04] p-8 transition hover:-translate-y-1 hover:border-brand-accent/60 hover:shadow-soft'
               >
-                <div className='flex flex-col gap-6 md:flex-row md:items-start md:justify-between'>
+                <div className='grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-stretch'>
                   <div className='space-y-4'>
                     <div className='space-y-1 text-xs uppercase tracking-[0.3em] text-white/60'>
                       <span>{project.year}</span>
@@ -115,30 +115,37 @@ function ProjectsCategory() {
                       {project.description[language]}
                     </p>
                   </div>
-                  <div className='space-y-3 md:min-w-[260px] md:max-w-[320px]'>
-                    <span className='text-xs uppercase tracking-[0.3em] text-white/40'>
-                      {labels.scopeLabel}
-                    </span>
-                    <div className='flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em]'>
-                      {project.scopes.map((scopeItem) => {
-                        const isActive = scopeItem.id === selectedScopeId
-                        return (
-                          <button
-                            key={scopeItem.id}
-                            type='button'
-                            onClick={() => handleScopeChange(project.id, scopeItem.id)}
-                            className={`rounded-full border px-3 py-1 transition ${
-                              isActive
-                                ? 'border-brand-accent bg-brand-accent/20 text-brand-accent'
-                                : 'border-brand-accent/30 text-brand-accent/70 hover:border-brand-accent hover:text-brand-accent'
-                            }`}
-                          >
-                            {scopeItem.label[language]}
-                          </button>
-                        )
-                      })}
-                    </div>
+                  <div className='flex items-center justify-start text-left text-sm text-white/70 md:pt-4'>
+                    {project.extraInfo?.[language]}
                   </div>
+                </div>
+                <div className='flex items-center justify-center gap-2'>
+                  <button
+                    type='button'
+                    onClick={() => {
+                      const ids = project.scopes.map((scope) => scope.id)
+                      const currentIndex = Math.max(0, ids.indexOf(selectedScopeId))
+                      const prevIndex = (currentIndex - 1 + ids.length) % ids.length
+                      handleScopeChange(project.id, ids[prevIndex])
+                    }}
+                    className='flex h-8 w-10 items-center justify-center rounded-full border border-brand-accent/40 text-brand-accent/80 transition hover:border-brand-accent hover:text-brand-accent'
+                    aria-label={language === 'en' ? 'Previous view' : 'Vorige weergave'}
+                  >
+                    {'<'}
+                  </button>
+                  <button
+                    type='button'
+                    onClick={() => {
+                      const ids = project.scopes.map((scope) => scope.id)
+                      const currentIndex = Math.max(0, ids.indexOf(selectedScopeId))
+                      const nextIndex = (currentIndex + 1) % ids.length
+                      handleScopeChange(project.id, ids[nextIndex])
+                    }}
+                    className='flex h-8 w-10 items-center justify-center rounded-full border border-brand-accent/40 text-brand-accent/80 transition hover:border-brand-accent hover:text-brand-accent'
+                    aria-label={language === 'en' ? 'Next view' : 'Volgende weergave'}
+                  >
+                    {'>'}
+                  </button>
                 </div>
                 <div className='overflow-hidden rounded-2xl border border-white/10'>
                   <img

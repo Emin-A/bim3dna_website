@@ -54,6 +54,7 @@ export type ProjectPortfolioItem = {
   description: LocalizedString;
   year: number;
   scopes: ProjectScope[];
+  extraInfo?: LocalizedString;
 };
 
 const scope = (
@@ -456,6 +457,10 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
           yotel06,
         ),
       ],
+      extraInfo: {
+        en: "For this project, a water pump system installation was delivered with coordinated layouts, equipment detailing, and point cloud verification to ensure precise site execution.",
+        nl: "Voor dit project is een waterpompsysteeminstallatie gerealiseerd met gecoördineerde lay-outs, apparatuurdetaillering en puntwolkverificatie voor nauwkeurige uitvoering op locatie.",
+      },
     },
   ],
   "template-database": [
