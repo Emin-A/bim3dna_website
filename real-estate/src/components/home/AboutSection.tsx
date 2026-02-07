@@ -246,11 +246,11 @@ function AboutSection() {
             >
               {teamTestimonials.map((testimonial) => (
                 <div key={testimonial.name} className="min-w-full px-0">
-                  <div className="space-y-4 border-l-2 border-brand-accent/60 pl-6">
+                  <div className="space-y-3 border-l-2 border-brand-accent/60 pl-6">
                     <p className="text-lg text-white/90">
                       {testimonial.quote[language]}
                     </p>
-                    <div className="flex items-center gap-4">
+                    <div className="flex -mt-1 items-center gap-4">
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
