@@ -63,9 +63,9 @@ const copy = {
       },
       {
         name: "Semir M.",
-        role: "MEP BIM-coordinator",
+        role: "MEP BIM-coördinator",
         linkedin: "https://www.linkedin.com/in/semir-mustajbasic-7957b3204/",
-        text: "Semir coordineert MEP-modellen met focus op uitvoerbaarheid, installatiesequencing en clashvrije oplevering. Hij verbindt ontwerpintentie met uitvoering op de bouwplaats.",
+        text: "Semir coördineert MEP-modellen met focus op uitvoerbaarheid, installatiesequencing en clashvrije oplevering. Hij verbindt ontwerpintentie met uitvoering op de bouwplaats.",
       },
     ],
   },
@@ -103,7 +103,7 @@ function About() {
                 src={profileImages[index]}
                 alt={profile.name}
                 className={`h-40 w-40 rounded-xl object-cover ring-1 ring-white/20 ${
-                  profile.name === "Semir M." ? "scale-110" : ""
+                  profile.name === "Semir M." ? "object-[50%_20%]" : ""
                 }`}
                 loading="lazy"
               />

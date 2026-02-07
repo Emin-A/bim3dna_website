@@ -245,8 +245,8 @@ function AboutSection() {
               style={{ transform: `translateX(-${teamIndex * 100}%)` }}
             >
               {teamTestimonials.map((testimonial) => (
-                <div key={testimonial.name} className="min-w-full px-0">
-                  <div className="space-y-3 border-l-2 border-brand-accent/60 pl-6">
+                <div key={testimonial.name} className="min-w-full px-0 pb-2">
+                  <div className="space-y-3 border-l-2 border-brand-accent/60 pl-6 overflow-visible">
                     <p className="text-lg text-white/90">
                       {testimonial.quote[language]}
                     </p>
@@ -255,7 +255,7 @@ function AboutSection() {
                         src={testimonial.image}
                         alt={testimonial.name}
                         className={`h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70 ${
-                          testimonial.name === "Semir M." ? "scale-110" : ""
+                          testimonial.name === "Semir M." ? "object-[50%_20%]" : ""
                         }`}
                         loading="lazy"
                       />
