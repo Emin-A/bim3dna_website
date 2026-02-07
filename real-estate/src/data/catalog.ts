@@ -4,6 +4,12 @@ import clashImg from '../assets/clash-detection.jpg'
 import scanImg from '../assets/scan-to-bim.jpg'
 import templateImg from '../assets/template-database.jpg'
 import lifecycleImg from '../assets/lifecycle-delivery.jpg'
+import heroVarvik from '../assets/Varvik 3D view.jpg'
+import heroArch from '../assets/Arch01.png'
+import heroScript from '../assets/Script Automation.png'
+import heroShot102915 from '../assets/Schermafbeelding 2026-02-07 102915.png'
+import heroShot174635 from '../assets/Schermafbeelding 2026-01-27 174635.png'
+import heroShot105744 from '../assets/Schermafbeelding 2026-02-07 105744.png'
 import architectureFeature from '../assets/project_img_1.jpg'
 import architectureInterior from '../assets/project_img_4.jpg'
 import installPrefabrication from '../assets/project_img_2.jpg'
@@ -70,7 +76,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'BIM-led coordination that keeps piping, electrical, and HVAC systems buildable, clash-free, and ready for prefabrication.',
       nl: 'BIM-gestuurde coördinatie die werktuigbouwkundige, elektrotechnische en HVAC-systemen uitvoerbaar, clashvrij en prefab-gereed houdt.',
     },
-    background: coordinationLead,
+    background: heroVarvik,
     tags: [
       { id: 'mep', label: { en: 'MEP', nl: 'MEP' } },
       { id: 'installations', label: { en: 'Installations', nl: 'Installaties' } },
@@ -87,7 +93,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Design support and authoring that translate the concept vision into coordinated construction models.',
       nl: 'Ontwerpbegeleiding en modellering die de conceptvisie uitwerken tot gecoördineerde bouwmodellen.',
     },
-    background: architectureFeature,
+    background: heroArch,
     tags: [
       { id: 'authoring', label: { en: 'Authoring', nl: 'Modelleren' } },
       { id: 'facade', label: { en: 'Facade', nl: 'Gevel' } },
@@ -104,7 +110,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Custom Dynamo, C#, and pyRevit tooling that removes repetitive work and enforces installation standards.',
       nl: 'Maatwerk Dynamo-, C#- en pyRevit-tools die repetitief werk wegnemen en installatiestandaarden borgen.',
     },
-    background: automationImg,
+    background: heroScript,
     tags: [
       { id: 'automation', label: { en: 'Automation', nl: 'Automatisering' } },
       { id: 'quality', label: { en: 'Quality', nl: 'Kwaliteit' } },
@@ -121,7 +127,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Rule-based coordination workshops and install-ready reporting tailored to electrical and mechanical trades.',
       nl: 'Regelgestuurde coördinatiesessies en installatieready rapportages, afgestemd op elektro- en werktuigbouw.',
     },
-    background: clashImg,
+    background: heroShot102915,
     tags: [
       { id: 'qa', label: { en: 'QA', nl: 'Kwaliteitscontrole' } },
       { id: 'workshops', label: { en: 'Workshops', nl: 'Workshops' } },
@@ -138,7 +144,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Point cloud intelligence converted into digital twins that guide installation upgrades.',
       nl: 'Puntwolkinformatie omgezet naar digitale twins die installatierenovaties sturen.',
     },
-    background: scanImg,
+    background: heroShot174635,
     tags: [
       { id: 'as-built', label: { en: 'As-built', nl: 'As-built' } },
       { id: 'digital-twin', label: { en: 'Digital Twin', nl: 'Digital Twin' } },
@@ -155,7 +161,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Revit templates, families, and parameters curated for mechanical and electrical delivery.',
       nl: 'Revit-templates, families en parameters op maat voor werktuigbouwkundige en elektrotechnische projecten.',
     },
-    background: templateImg,
+    background: heroShot105744,
     tags: [
       { id: 'content', label: { en: 'Content', nl: 'Content' } },
       { id: 'governance', label: { en: 'Governance', nl: 'Governance' } },
@@ -172,7 +178,7 @@ export const serviceCategories: ServiceCategory[] = [
       en: 'Schedule, cost, and facilities intelligence embedded in the installation models we hand over.',
       nl: 'Planning-, kosten- en beheerinformatie geïntegreerd in de installatiemodellen die we opleveren.',
     },
-    background: lifecycleImg,
+    background: heroVarvik,
     tags: [
       { id: '4d', label: { en: '4D/5D/6D', nl: '4D/5D/6D' } },
       { id: 'operations', label: { en: 'Operations', nl: 'Beheer' } },
