@@ -110,7 +110,9 @@ function ProjectsCategory() {
                     <span>{project.location}</span>
                   </div>
                   <h2 className='text-2xl font-semibold'>{project.title[language]}</h2>
-                  <p className='text-sm text-white/70'>{project.description[language]}</p>
+                  <p className='text-sm text-white/70 whitespace-pre-line'>
+                    {project.description[language]}
+                  </p>
                   <div className='space-y-3'>
                     <span className='text-xs uppercase tracking-[0.3em] text-white/40'>
                       {labels.scopeLabel}

@@ -18,6 +18,12 @@ import templateLibrary from "../assets/project_img_2.jpg";
 import scanHeritage from "../assets/project_img_3.jpg";
 import scanHealthcare from "../assets/header_img.png";
 import clashNavisworks from "../assets/project_img_5.jpg";
+import yotel01 from "../assets/Yotelair Schiphol 01.png";
+import yotel02 from "../assets/Yotelair Schiphol 02.png";
+import yotel03 from "../assets/Yotelair Schiphol 03.png";
+import yotel04 from "../assets/Yotelair Schiphol 04.png";
+import yotel05 from "../assets/Yotelair Schiphol 05.png";
+import yotel06 from "../assets/Yotelair Schiphol 06.png";
 
 import type { Language } from "../i18n/languages";
 
@@ -227,31 +233,24 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       ],
     },
     {
-      id: "sirius-residential-tower",
+      id: "schiphol-yotel",
       title: {
-        en: "Sirius Residential Tower",
-        nl: "Sirius Residential Tower",
+        en: "Schiphol",
+        nl: "Schiphol",
       },
-      location: "2024 · Amsterdam, NL",
+      location: "Schiphol, NL",
       description: {
-        en: "High-rise apartments where staged installation sequences and temporary services were coordinated in one model.",
-        nl: "Hoogbouwappartementen waarbij gefaseerde installaties en tijdelijke voorzieningen in één model werden gecoördineerd.",
+        en: "Project: Schiphol\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands.",
+        nl: "Project: Schiphol\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Schiphol, Nederland.",
       },
-      year: 2024,
+      year: 2025,
       scopes: [
-        scope("facade-bim", "Facade BIM", "Gevel BIM", architectureInterior),
-        scope(
-          "structural-integration",
-          "Structural Integration",
-          "Constructieve integratie",
-          installWorkshop,
-        ),
-        scope(
-          "installation-sequencing",
-          "Installation Sequencing",
-          "Installatiesequenties",
-          installPrefabrication,
-        ),
+        scope("pump-room", "Pump Room", "Pomp ruimte", yotel01),
+        scope("wastewater-piping", "Wastewater Piping", "Afvoerleidingen", yotel02),
+        scope("system-layout", "System Layout", "Systeemlayout", yotel03),
+        scope("equipment-detail", "Equipment Detail", "Apparatuurdetaillering", yotel04),
+        scope("control-panel", "Control Panel", "Besturing", yotel05),
+        scope("installation-view", "Installation View", "Installatiebeeld", yotel06),
       ],
     },
   ],
@@ -619,3 +618,4 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
     },
   ],
 };
+

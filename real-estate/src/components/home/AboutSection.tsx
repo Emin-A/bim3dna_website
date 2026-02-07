@@ -255,7 +255,9 @@ function AboutSection() {
                         src={testimonial.image}
                         alt={testimonial.name}
                         className={`h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70 ${
-                          testimonial.name === "Semir M." ? "object-[50%_20%]" : ""
+                          testimonial.name === "Semir M."
+                            ? "object-[50%_20%]"
+                            : ""
                         }`}
                         loading="lazy"
                       />
