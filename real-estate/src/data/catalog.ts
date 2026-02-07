@@ -15,8 +15,6 @@ import automationSuite from "../assets/project_img_5.jpg";
 import automationDashboard from "../assets/project_img_6.jpg";
 import lifecycleDashboard from "../assets/project_img_4.jpg";
 import templateLibrary from "../assets/project_img_2.jpg";
-import scanHeritage from "../assets/project_img_3.jpg";
-import scanHealthcare from "../assets/header_img.png";
 import clashNavisworks from "../assets/project_img_5.jpg";
 import yotel01 from "../assets/Yotelair Schiphol 01.png";
 import yotel02 from "../assets/Yotelair Schiphol 02.png";
@@ -232,47 +230,6 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         ),
       ],
     },
-    {
-      id: "schiphol-yotel",
-      title: {
-        en: "Schiphol",
-        nl: "Schiphol",
-      },
-      location: " · Amsterdam, NL",
-      description: {
-        en: "Project: Schiphol\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands.",
-        nl: "Project: Schiphol\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Schiphol, Nederland.",
-      },
-      year: 2025,
-      scopes: [
-        scope("view-3d", "3D View", "3D-weergave", yotel01),
-        scope("top-view", "Top View", "Bovenaanzicht", yotel02),
-        scope(
-          "front-side-view",
-          "Front/Side View",
-          "Voor/zijaanzicht",
-          yotel03,
-        ),
-        scope(
-          "pointcloud-3d",
-          "3D View Point Cloud",
-          "3D-weergave puntwolk",
-          yotel04,
-        ),
-        scope(
-          "pointcloud-top",
-          "Top View Point Cloud",
-          "Bovenaanzicht puntwolk",
-          yotel05,
-        ),
-        scope(
-          "pointcloud-front-side",
-          "Front/Side Point Cloud View",
-          "Voor/zijaanzicht puntwolk",
-          yotel06,
-        ),
-      ],
-    },
   ],
   "architecture-delivery": [
     {
@@ -281,7 +238,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Canal District Housing",
         nl: "Grachtengordel Wonen",
       },
-      location: " · Amsterdam, NL",
+      location: "Schiphol, NL",
       description: {
         en: "Heritage-sensitive housing with parametric facades tuned to daylight and coordinated with mechanical exhausts.",
         nl: "Monumentaal woonproject met parametrische gevels geoptimaliseerd voor daglicht en afgestemd op mechanische ventilatiekanalen.",
@@ -460,59 +417,44 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "scan-to-bim": [
     {
-      id: "heritage-library-digital-twin",
+      id: "schiphol-yotel",
       title: {
-        en: "Heritage Library Digital Twin",
-        nl: "Digitale Twin Erfgoedbibliotheek",
+        en: "Schiphol",
+        nl: "Schiphol",
       },
-      location: " · Leiden, NL",
+      location: "Schiphol, NL",
       description: {
-        en: "Hybrid terrestrial scanning converted into as-built BIM with installation-ready metadata.",
-        nl: "Hybride terrestrische scans vertaald naar as-built BIM met installatiegereed metadata.",
+        en: "Project: Schiphol\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands.",
+        nl: "Project: Schiphol\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Schiphol, Nederland.",
       },
       year: 2025,
       scopes: [
+        scope("view-3d", "3D View", "3D-weergave", yotel01),
+        scope("top-view", "Top View", "Bovenaanzicht", yotel02),
         scope(
-          "registration",
-          "Point Cloud Registration",
-          "Puntwolkregistratie",
-          scanHeritage,
+          "front-side-view",
+          "Front/Side View",
+          "Voor/zijaanzicht",
+          yotel03,
         ),
         scope(
-          "mechanical-model",
-          "Mechanical Model",
-          "Werktuigbouwkundig model",
-          scanImg,
+          "pointcloud-3d",
+          "3D View Point Cloud",
+          "3D-weergave puntwolk",
+          yotel04,
         ),
         scope(
-          "asset-tagging",
-          "Asset Tagging",
-          "Asset tagging",
-          scanHealthcare,
+          "pointcloud-top",
+          "Top View Point Cloud",
+          "Bovenaanzicht puntwolk",
+          yotel05,
         ),
-      ],
-    },
-    {
-      id: "hospital-diagnostic-wing",
-      title: {
-        en: "Hospital Diagnostic Wing",
-        nl: "Diagnostisch Ziekenhuisgedeelte",
-      },
-      location: " · Utrecht, NL",
-      description: {
-        en: "High-detail capture enabling prefabricated plant replacement with minimal shutdown.",
-        nl: "Gedetailleerde opname die prefab vervanging van technische installaties mogelijk maakte met minimale stilstand.",
-      },
-      year: 2024,
-      scopes: [
         scope(
-          "reality-capture",
-          "Reality Capture",
-          "Reality capture",
-          scanHealthcare,
+          "pointcloud-front-side",
+          "Front/Side Point Cloud View",
+          "Voor/zijaanzicht puntwolk",
+          yotel06,
         ),
-        scope("mep-model", "MEP Model", "MEP-model", scanImg),
-        scope("fm-data", "FM Data Ready", "FM-data gereed", scanHeritage),
       ],
     },
   ],
