@@ -102,18 +102,20 @@ function ProjectsCategory() {
             return (
               <article
                 key={project.id}
-                className='grid gap-10 rounded-3xl border border-white/10 bg-white/[0.04] p-8 transition hover:-translate-y-1 hover:border-brand-accent/60 hover:shadow-soft md:grid-cols-[1fr_1.35fr] md:items-center'
+                className='grid gap-8 rounded-3xl border border-white/10 bg-white/[0.04] p-8 transition hover:-translate-y-1 hover:border-brand-accent/60 hover:shadow-soft'
               >
-                <div className='space-y-4'>
-                  <div className='space-y-1 text-xs uppercase tracking-[0.3em] text-white/60'>
-                    <span>{project.year}</span>
-                    <span>{project.location}</span>
+                <div className='flex flex-col gap-6 md:flex-row md:items-start md:justify-between'>
+                  <div className='space-y-4'>
+                    <div className='space-y-1 text-xs uppercase tracking-[0.3em] text-white/60'>
+                      <span>{project.year}</span>
+                      <span>{project.location}</span>
+                    </div>
+                    <h2 className='text-2xl font-semibold'>{project.title[language]}</h2>
+                    <p className='text-sm text-white/70 whitespace-pre-line'>
+                      {project.description[language]}
+                    </p>
                   </div>
-                  <h2 className='text-2xl font-semibold'>{project.title[language]}</h2>
-                  <p className='text-sm text-white/70 whitespace-pre-line'>
-                    {project.description[language]}
-                  </p>
-                  <div className='space-y-3'>
+                  <div className='space-y-3 md:min-w-[260px] md:max-w-[320px]'>
                     <span className='text-xs uppercase tracking-[0.3em] text-white/40'>
                       {labels.scopeLabel}
                     </span>
@@ -138,15 +140,13 @@ function ProjectsCategory() {
                     </div>
                   </div>
                 </div>
-                <div className='space-y-4'>
-                  <div className='overflow-hidden rounded-2xl border border-white/10 md:h-[320px]'>
-                    <img
-                      src={selectedScope?.image ?? project.scopes[0]?.image}
-                      alt={`${project.title[language]} - ${selectedScope?.label[language] ?? ''}`}
-                      className='h-full w-full object-cover'
-                      loading='lazy'
-                    />
-                  </div>
+                <div className='overflow-hidden rounded-2xl border border-white/10'>
+                  <img
+                    src={selectedScope?.image ?? project.scopes[0]?.image}
+                    alt={`${project.title[language]} - ${selectedScope?.label[language] ?? ''}`}
+                    className='h-full w-full object-cover'
+                    loading='lazy'
+                  />
                 </div>
               </article>
             )

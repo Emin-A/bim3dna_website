@@ -205,7 +205,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Varvik Innovation Hub",
         nl: "Varvik Innovation Hub",
       },
-      location: "2025 · Rotterdam, NL",
+      location: " · Rotterdam, NL",
       description: {
         en: "Multi-phase campus with packaged plant rooms, prefabricated risers, and coordinated cable routing ready for installation.",
         nl: "Meerfasig campusproject met prefab technische ruimtes, uitgewerkte schachten en gecoördineerde kabelroutes tot op uitvoeringsniveau.",
@@ -238,19 +238,39 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Schiphol",
         nl: "Schiphol",
       },
-      location: "Schiphol, NL",
+      location: " · Amsterdam, NL",
       description: {
         en: "Project: Schiphol\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands.",
         nl: "Project: Schiphol\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Schiphol, Nederland.",
       },
       year: 2025,
       scopes: [
-        scope("pump-room", "Pump Room", "Pomp ruimte", yotel01),
-        scope("wastewater-piping", "Wastewater Piping", "Afvoerleidingen", yotel02),
-        scope("system-layout", "System Layout", "Systeemlayout", yotel03),
-        scope("equipment-detail", "Equipment Detail", "Apparatuurdetaillering", yotel04),
-        scope("control-panel", "Control Panel", "Besturing", yotel05),
-        scope("installation-view", "Installation View", "Installatiebeeld", yotel06),
+        scope("view-3d", "3D View", "3D-weergave", yotel01),
+        scope("top-view", "Top View", "Bovenaanzicht", yotel02),
+        scope(
+          "front-side-view",
+          "Front/Side View",
+          "Voor/zijaanzicht",
+          yotel03,
+        ),
+        scope(
+          "pointcloud-3d",
+          "3D View Point Cloud",
+          "3D-weergave puntwolk",
+          yotel04,
+        ),
+        scope(
+          "pointcloud-top",
+          "Top View Point Cloud",
+          "Bovenaanzicht puntwolk",
+          yotel05,
+        ),
+        scope(
+          "pointcloud-front-side",
+          "Front/Side Point Cloud View",
+          "Voor/zijaanzicht puntwolk",
+          yotel06,
+        ),
       ],
     },
   ],
@@ -261,7 +281,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Canal District Housing",
         nl: "Grachtengordel Wonen",
       },
-      location: "2025 · Amsterdam, NL",
+      location: " · Amsterdam, NL",
       description: {
         en: "Heritage-sensitive housing with parametric facades tuned to daylight and coordinated with mechanical exhausts.",
         nl: "Monumentaal woonproject met parametrische gevels geoptimaliseerd voor daglicht en afgestemd op mechanische ventilatiekanalen.",
@@ -294,7 +314,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Northshore Cultural Centre",
         nl: "Northshore Cultuurcentrum",
       },
-      location: "2024 · Groningen, NL",
+      location: " · Groningen, NL",
       description: {
         en: "Public programme where architectural detailing and mechanical routing were resolved together to preserve interior intent.",
         nl: "Publiek programma waarbij architectonische detaillering en installatietracten samen zijn opgelost om de ruimtelijke kwaliteit te behouden.",
@@ -329,7 +349,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "PyRevit Standards Suite",
         nl: "PyRevit Standaardensuite",
       },
-      location: "2025 · Global rollout",
+      location: " · Global rollout",
       description: {
         en: "Automation toolkit covering QA, sheet setup, and parameter governance for 200+ installation designers.",
         nl: "Automatiseringssuite voor kwaliteitscontroles, tekenbladopzet en paramaterbeheer voor meer dan 200 installatiemodelleurs.",
@@ -357,7 +377,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Prefab Library Generator",
         nl: "Prefab Bibliotheekgenerator",
       },
-      location: "2024 · Copenhagen, DK",
+      location: " · Copenhagen, DK",
       description: {
         en: "Scripts that transform manufacturer data into multi-discipline families complete with install instructions.",
         nl: "Scripts die fabrikantsdata omzetten naar multidisciplinaire families inclusief installatieschema’s.",
@@ -392,7 +412,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Metro Interchange Upgrade",
         nl: "Metro Verkeersknooppunt Upgrade",
       },
-      location: "2025 · The Hague, NL",
+      location: " · The Hague, NL",
       description: {
         en: "Weekly install workshops resolving dense MEP racks, penetrations, and staged sequences with Navisworks automations.",
         nl: "Wekelijkse installatieworkshops voor dichte MEP-racks, sparingen en gefaseerde sequenties met Navisworks-automatiseringen.",
@@ -420,7 +440,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Data Centre Delivery",
         nl: "Datacentrumlevering",
       },
-      location: "2024 · Frankfurt, DE",
+      location: " · Frankfurt, DE",
       description: {
         en: "High-density plant validated through rule-based clashes and dashboards powering install readiness.",
         nl: "Hoogwaardige technische installaties gevalideerd met regels-gebaseerde clashes en dashboards voor installatiereadiness.",
@@ -445,7 +465,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Heritage Library Digital Twin",
         nl: "Digitale Twin Erfgoedbibliotheek",
       },
-      location: "2025 · Leiden, NL",
+      location: " · Leiden, NL",
       description: {
         en: "Hybrid terrestrial scanning converted into as-built BIM with installation-ready metadata.",
         nl: "Hybride terrestrische scans vertaald naar as-built BIM met installatiegereed metadata.",
@@ -478,7 +498,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Hospital Diagnostic Wing",
         nl: "Diagnostisch Ziekenhuisgedeelte",
       },
-      location: "2024 · Utrecht, NL",
+      location: " · Utrecht, NL",
       description: {
         en: "High-detail capture enabling prefabricated plant replacement with minimal shutdown.",
         nl: "Gedetailleerde opname die prefab vervanging van technische installaties mogelijk maakte met minimale stilstand.",
@@ -503,7 +523,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Enterprise Template Overhaul",
         nl: "Enterprise Template Vernieuwing",
       },
-      location: "2025 · EU & Middle East",
+      location: " · EU & Middle East",
       description: {
         en: "Unified libraries governing parameters, title blocks, and install kits across 14 studios.",
         nl: "Geünificeerde bibliotheken met parameters, titelbladen en installatiesets voor 14 studio’s.",
@@ -531,7 +551,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Infrastructure BIM Standards",
         nl: "Infrastructuur BIM-standaarden",
       },
-      location: "2024 · Benelux",
+      location: " · Benelux",
       description: {
         en: "Discipline-specific Revit standards with automated audits and install documentation.",
         nl: "Disciplinegerichte Revit-standaarden met geautomatiseerde audits en installatiedocumentatie.",
@@ -566,7 +586,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "4D Logistics Playbook",
         nl: "4D-logistiek handboek",
       },
-      location: "2025 · Vienna, AT",
+      location: " · Vienna, AT",
       description: {
         en: "Construction phasing linked to installation kits, ensuring just-in-time delivery.",
         nl: "Bouwfasering gekoppeld aan installatiesets voor just-in-time levering.",
@@ -594,7 +614,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "6D Operations Portal",
         nl: "6D operationsportaal",
       },
-      location: "2024 · Luxembourg",
+      location: " · Luxembourg",
       description: {
         en: "Facilities dashboards combining install data with predictive maintenance insights.",
         nl: "Beheerdashboards met installatiedata en voorspellende onderhoudsinzichten.",
@@ -618,4 +638,3 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
     },
   ],
 };
-
