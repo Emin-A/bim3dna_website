@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { projectPortfolios, serviceCategories } from '../data/catalog'
 import { useLanguage } from '../context/LanguageContext'
+import footerLogo from '../assets/BIM3DNA Thumbnail.png'
 
 type ScopeState = Record<string, string>
 
@@ -147,11 +148,17 @@ function ProjectsCategory() {
                     {'>'}
                   </button>
                 </div>
-                <div className='overflow-hidden rounded-2xl border border-white/10'>
+                <div className='relative overflow-hidden rounded-2xl border border-white/10'>
                   <img
                     src={selectedScope?.image ?? project.scopes[0]?.image}
                     alt={`${project.title[language]} - ${selectedScope?.label[language] ?? ''}`}
                     className='h-full w-full object-cover'
+                    loading='lazy'
+                  />
+                  <img
+                    src={footerLogo}
+                    alt='BIM3DNA'
+                    className='absolute left-4 top-4 h-8 w-8 rounded-md ring-1 ring-white/30'
                     loading='lazy'
                   />
                 </div>

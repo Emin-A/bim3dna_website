@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { serviceCategories } from "../data/catalog";
 import { useLanguage } from "../context/LanguageContext";
+import footerLogo from "../assets/BIM3DNA Thumbnail.png";
 
 const copy = {
   en: {
@@ -73,6 +74,12 @@ function Projects() {
                     src={category.background}
                     alt={category.title[language]}
                     className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <img
+                    src={footerLogo}
+                    alt="BIM3DNA"
+                    className="absolute left-4 top-4 h-8 w-8 rounded-md ring-1 ring-white/30"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />

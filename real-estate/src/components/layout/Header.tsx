@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import logoMark from '../../assets/BIM3DNA Logo Final 7.png'
+import logoMark from '../../assets/BIM3DNA Logo Final Wit.png'
 import LanguageToggle from '../common/LanguageToggle'
 import { useLanguage } from '../../context/LanguageContext'
 

@@ -144,9 +144,30 @@ const teamTestimonials: TeamTestimonial[] = [
     },
     image: null,
   },
+  {
+    name: "Arnel H.",
+    role: {
+      en: "BIM specialist",
+      nl: "BIM-specialist",
+    },
+    quote: {
+      en: "I support BIM delivery through consistent models, clear coordination outputs, and practical documentation teams can build from.",
+      nl: "Ik ondersteun BIM-oplevering met consistente modellen, duidelijke coordinatie-output en praktische documentatie waarmee teams kunnen bouwen.",
+    },
+    image: null,
+  },
   ];
 
 const clientTestimonials: ClientTestimonial[] = [
+  {
+    quote: {
+      en: "\"These guys are an enrichment to our services. Strong technical experts, excellent BIM quality work, and clear communicators who keep their word!\"",
+      nl: "\"Deze mannen zijn een verrijking voor onze dienstverlening. Goede techneuten, prima kwaliteit BIM-werk. Goede communicators en afspraak is afspraak!\"",
+    },
+    name: "M-TRiX",
+    title: { en: "Installation Advisors", nl: "Installatie Adviseurs" },
+    company: "M-TRiX Installatie Adviseurs",
+  },
   {
     quote: {
       en: "“BIM3DNA cut weeks from coordination. Prefab partners received install kits that were buildable on day one.”",
@@ -247,14 +268,15 @@ function AboutSection() {
   const [clientIndex, setClientIndex] = useState(0);
   const { language } = useLanguage();
   const labels = copy[language];
+  const clientControlCount = Math.min(3, clientTestimonials.length);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setClientIndex((prev) => (prev + 1) % clientTestimonials.length);
+      setClientIndex((prev) => (prev + 1) % clientControlCount);
     }, 8000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [clientControlCount]);
 
   const activeClientSet = useMemo(
     () => useLoopingSlice(clientTestimonials, 4, clientIndex),
@@ -375,7 +397,7 @@ function AboutSection() {
               {labels.clientsTitle}
             </h3>
             <div className="flex gap-2">
-              {clientTestimonials.map((_, index) => (
+              {Array.from({ length: clientControlCount }).map((_, index) => (
                 <button
                   key={index}
                   type="button"

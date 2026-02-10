@@ -71,6 +71,12 @@ const copy = {
         linkedin: "https://www.linkedin.com/company/bim3dna",
         text: "Dzenita prepares structured BIM documentation and model outputs to keep communication clear between design, coordination, and site teams.",
       },
+      {
+        name: "Arnel H.",
+        role: "BIM specialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Arnel supports BIM delivery with a focus on model consistency, clear coordination outputs, and reliable project documentation across disciplines.",
+      },
     ],
   },
   nl: {
@@ -139,6 +145,12 @@ const copy = {
         linkedin: "https://www.linkedin.com/company/bim3dna",
         text: "Dzenita verzorgt gestructureerde BIM-documentatie en modeloutput voor heldere afstemming tussen ontwerp, coordinatie en uitvoering.",
       },
+      {
+        name: "Arnel H.",
+        role: "BIM-specialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Arnel ondersteunt BIM-opleveringen met focus op modelconsistentie, duidelijke coordinatie-output en betrouwbare projectdocumentatie tussen disciplines.",
+      },
     ],
   },
 };
@@ -148,6 +160,7 @@ const profileImages: Array<string | null> = [
   Alen,
   Emin,
   Semir,
+  null,
   null,
   null,
   null,

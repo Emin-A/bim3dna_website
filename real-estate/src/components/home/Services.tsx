@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { serviceCategories } from '../../data/catalog'
 import { useLanguage } from '../../context/LanguageContext'
+import footerLogo from '../../assets/BIM3DNA Thumbnail.png'
 
 const copy = {
   en: {
@@ -99,9 +100,12 @@ function Services() {
                   loading='lazy'
                 />
                 <div className='absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent' />
-                <span className='absolute left-4 top-4 text-xs font-medium uppercase tracking-[0.4em] text-white/80'>
-                  {labels.cardPrefix}
-                </span>
+                <img
+                  src={footerLogo}
+                  alt='BIM3DNA'
+                  className='absolute left-4 top-4 h-8 w-8 rounded-md ring-1 ring-white/30'
+                  loading='lazy'
+                />
               </div>
               <div className='mt-8 space-y-3'>
                 <h4 className='text-lg font-semibold'>{service.title[language]}</h4>
