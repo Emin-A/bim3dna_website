@@ -111,14 +111,17 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     slug: "script-automation",
-    title: { en: "Script / Automation", nl: "Script / Automatisering" },
+    title: {
+      en: "AI Automation / Python Scripts",
+      nl: "AI-automatisering / Python scripts",
+    },
     headline: {
-      en: "Automation that keeps installation models consistent and compliant.",
-      nl: "Automatisering die installatiemodellen consistent en conform houdt.",
+      en: "AI automation and Python tooling that keeps installation BIM consistent and scalable.",
+      nl: "AI-automatisering en Python-tooling die installatie-BIM consistent en schaalbaar houdt.",
     },
     summary: {
-      en: "Custom Dynamo, C#, and pyRevit tooling that removes repetitive work and enforces installation standards.",
-      nl: "Maatwerk Dynamo-, C#- en pyRevit-tools die repetitief werk wegnemen en installatiestandaarden borgen.",
+      en: "Revit API, Python scripting, and BIM automation workflows that remove repetitive work, enforce standards, and improve model quality control.",
+      nl: "Revit API-, Python scripting- en BIM-automatiseringsworkflows die repetitief werk verminderen, standaarden borgen en modelkwaliteitscontrole verbeteren.",
     },
     background: heroScript,
     tags: [

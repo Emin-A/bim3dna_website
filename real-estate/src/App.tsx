@@ -6,6 +6,7 @@ import Projects from './pages/Projects'
 import ProjectsCategory from './pages/ProjectsCategory'
 import Disclaimer from './pages/Disclaimer'
 import About from './pages/About'
+import ServicesPage from './pages/ServicesPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:categorySlug" element={<ProjectsCategory />} />
+          <Route path="/services" element={<ServicesPage />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
       </main>

@@ -11,9 +11,10 @@ const copy = {
     eyebrow: "Installation advisory bureau",
     heading: "Built-in intelligence for every installation model.",
     description:
-      "We lead mechanical, electrical, and piping coordination with the digital clarity your installers need on day one.",
+      "We deliver BIM coordination for mechanical, electrical, and piping systems with AI automation in Revit, Python scripting, and Revit API workflows to keep models standardized, centralized, and execution-ready from day one.",
     buttons: [
       { label: "Projects", type: "route" as const, target: "/projects" },
+      { label: "Services", type: "route" as const, target: "/services" },
       { label: "About Us", type: "route" as const, target: "/about" },
     ],
   },
@@ -21,9 +22,10 @@ const copy = {
     eyebrow: "Installatietechnische partner",
     heading: "BIM 3D specialist in de\ninstallatietechniek",
     description:
-      "Geintregeerde intelligente in installatiemodellen gestandaardiseerde en gecentraliseerde modellen voor al uw projecten",
+      "Wij leveren BIM-coordinatie voor werktuigbouwkundige, elektrotechnische en piping-installaties met AI-automatisering in Revit, Python scripting en Revit API-workflows, zodat modellen gestandaardiseerd, gecentraliseerd en uitvoeringsgereed zijn vanaf dag een.",
     buttons: [
       { label: "Projecten", type: "route" as const, target: "/projects" },
+      { label: "Diensten", type: "route" as const, target: "/services" },
       { label: "Over ons", type: "route" as const, target: "/about" },
     ],
   },
@@ -68,7 +70,7 @@ function Hero() {
               index === activeIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              backgroundImage: `linear-gradient(135deg, rgba(6, 24, 26, 0.88), rgba(3, 16, 18, 0.88)), url(${slide})`,
+              backgroundImage: `linear-gradient(135deg, rgba(6, 24, 26, 0.84), rgba(3, 16, 18, 0.84)), url(${slide})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -86,10 +88,7 @@ function Hero() {
             <h1 className="whitespace-pre-line text-4xl font-semibold uppercase tracking-[0.12em] text-white md:text-5xl">
               {labels.heading}
             </h1>
-            <p className="max-w-2xl text-lg text-white/80 transition-opacity duration-700 ease-out">
-              {labels.description}
-            </p>
-            <p className="max-w-2xl text-base text-white/70">
+            <p className="max-w-2xl text-xl font-semibold leading-relaxed text-white/90 transition-opacity duration-700 ease-out md:text-2xl">
               {labels.description}
             </p>
           </div>

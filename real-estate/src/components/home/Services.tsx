@@ -12,7 +12,7 @@ const copy = {
     coreServicesLabel: 'Core services',
     coreServicesHeading: 'Specialist skills that keep installation models reliable.',
     coreServicesBody:
-      'These service pillars are the skills we mobilise to execute installation programmes - whether that means site-ready coordination sets, generative content, or lifecycle dashboards.',
+      'BIM coordination, model centralization, ILS information, AI automation, Python scripting, Revit API workflows, and end-to-end BIM automation for reliable installation delivery.',
     cardPrefix: 'BIM',
     viewProjects: 'View projects',
   },
@@ -25,7 +25,8 @@ const copy = {
       'Wij willen de meest vertrouwde BIM partner zijn voor installatietechniek. Door nauwkeurige digitale modellen te combineren met doordacht technisch advies creeren we gebouwen die efficienter, duurzamer en toekomstbestendig worden gerealiseerd en beheerd.',
     coreServicesLabel: 'Kernservices',
     coreServicesHeading: 'Modelleren en adviseren in de installatietechniek',
-    coreServicesBody: 'BIM coordinatie, centralisatie, ILS informatie en procesautomatisatie',
+    coreServicesBody:
+      'BIM coordinatie, modelcentralisatie, ILS-informatie, AI-automatisering, Python scripting, Revit API-workflows en volledige BIM-automatisering voor betrouwbare installatie-uitvoering.',
     cardPrefix: 'BIM',
     viewProjects: 'Bekijk projecten',
   },

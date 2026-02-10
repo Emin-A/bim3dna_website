@@ -8,6 +8,7 @@ type NavKey = keyof typeof copy.en.nav
 
 const navItems: { key: NavKey; type: 'route' | 'section'; target: string }[] = [
   { key: 'projects', type: 'route', target: '/projects' },
+  { key: 'services', type: 'route', target: '/services' },
   { key: 'about', type: 'route', target: '/about' },
 ]
 
@@ -15,12 +16,14 @@ const copy = {
   en: {
     nav: {
       projects: 'Projects',
+      services: 'Services',
       about: 'About Us',
     },
   },
   nl: {
     nav: {
       projects: 'Projecten',
+      services: 'Diensten',
       about: 'Over ons',
     },
   },

@@ -13,7 +13,7 @@ type TeamTestimonial = {
   name: string;
   role: Record<Language, string>;
   quote: Record<Language, string>;
-  image: string;
+  image: string | null;
 };
 
 type ClientTestimonial = {
@@ -71,8 +71,80 @@ const teamTestimonials: TeamTestimonial[] = [
       nl: "Ik stem MEP-modellen af op uitvoerbaarheid en installatiesequencing zodat teams zonder verrassingen kunnen bouwen.",
     },
     image: Semir,
+      },
+  {
+    name: "Vedran J.",
+    role: {
+      en: "BIM coordinator",
+      nl: "BIM-coordinator",
+    },
+    quote: {
+      en: "I keep multidisciplinary BIM coordination clear and actionable for project teams.",
+      nl: "Ik houd multidisciplinaire BIM-coordinatie duidelijk en uitvoerbaar voor projectteams.",
+    },
+    image: null,
   },
-];
+  {
+    name: "Adin A.",
+    role: {
+      en: "BIM modeler",
+      nl: "BIM-modelleur",
+    },
+    quote: {
+      en: "I focus on precise installation modeling and consistent project documentation.",
+      nl: "Ik focus op nauwkeurige installatiemodellen en consistente projectdocumentatie.",
+    },
+    image: null,
+  },
+  {
+    name: "Nedim P.",
+    role: {
+      en: "MEP BIM specialist",
+      nl: "MEP BIM-specialist",
+    },
+    quote: {
+      en: "I support execution-ready MEP models with constructability and coordination in mind.",
+      nl: "Ik ondersteun uitvoering gereed MEP-modellen met focus op uitvoerbaarheid en coordinatie.",
+    },
+    image: null,
+  },
+  {
+    name: "Wael A.",
+    role: {
+      en: "BIM engineer",
+      nl: "BIM-engineer",
+    },
+    quote: {
+      en: "I connect design intent and installation constraints to keep BIM delivery aligned.",
+      nl: "Ik verbind ontwerpintentie en installatiebeperkingen om BIM-oplevering goed af te stemmen.",
+    },
+    image: null,
+  },
+  {
+    name: "Emir B.",
+    role: {
+      en: "BIM automation support",
+      nl: "BIM-automatisering support",
+    },
+    quote: {
+      en: "I help automate repetitive BIM tasks to improve consistency and delivery speed.",
+      nl: "Ik help repetitieve BIM-taken automatiseren om consistentie en doorlooptijd te verbeteren.",
+    },
+    image: null,
+  },
+  {
+    name: "Dzenita S.",
+    role: {
+      en: "BIM documentation specialist",
+      nl: "BIM-documentatiespecialist",
+    },
+    quote: {
+      en: "I structure BIM outputs and documentation so teams can coordinate with confidence.",
+      nl: "Ik structureer BIM-output en documentatie zodat teams met vertrouwen kunnen coordineren.",
+    },
+    image: null,
+  },
+  ];
 
 const clientTestimonials: ClientTestimonial[] = [
   {
@@ -251,16 +323,22 @@ function AboutSection() {
                       {testimonial.quote[language]}
                     </p>
                     <div className="flex -mt-1 items-center gap-4">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className={`h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70 ${
-                          testimonial.name === "Semir M."
-                            ? "object-[50%_20%]"
-                            : ""
-                        }`}
-                        loading="lazy"
-                      />
+                      {testimonial.image ? (
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className={`h-12 w-12 rounded-full object-cover ring-2 ring-brand-accent/70 ${
+                            testimonial.name === "Semir M."
+                              ? "object-[50%_20%]"
+                              : ""
+                          }`}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-accent/70 bg-white/[0.04] text-[8px] font-semibold uppercase tracking-[0.1em] text-white/60">
+                          No Image
+                        </div>
+                      )}
                       <div>
                         <p className="text-sm font-semibold text-white">
                           {testimonial.name}
@@ -277,14 +355,14 @@ function AboutSection() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/20 px-6 py-8">
-          <div className="mask-fade-x mask-fade-y flex animate-marquee items-center gap-16">
+        <div className="overflow-hidden rounded-2xl border border-brand-accent/70 bg-white/90 px-6 py-8 shadow-[0_0_24px_rgba(33,212,196,0.14)]">
+          <div className="mask-fade-x mask-fade-y flex animate-marquee items-center gap-16 rounded-xl px-6 py-5">
             {[...logos, ...logos].map((logo, index) => (
               <img
                 key={`${logo}-${index}`}
                 src={logo}
                 alt="Client logo"
-                className="h-12 w-auto opacity-80 transition hover:opacity-100"
+                className="h-12 w-auto opacity-95 transition hover:opacity-100"
                 loading="lazy"
               />
             ))}
@@ -341,3 +419,5 @@ function AboutSection() {
 }
 
 export default AboutSection;
+
+

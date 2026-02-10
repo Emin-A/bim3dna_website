@@ -26,7 +26,7 @@ const copy = {
       {
         name: "Emin A.",
         role: "BIM automation specialist",
-        linkedin: "https://www.linkedin.com/company/bim3dna",
+        linkedin: "https://www.linkedin.com/in/emin-avdovic-90210/",
         text: "Emin builds automation workflows that reduce repetitive modelling work and improve consistency. His scripts and QA checks help teams maintain reliable data and faster project delivery.",
       },
       {
@@ -34,6 +34,42 @@ const copy = {
         role: "MEP BIM coordinator",
         linkedin: "https://www.linkedin.com/in/semir-mustajbasic-7957b3204/",
         text: "Semir coordinates MEP models with a focus on constructability, installation sequencing, and clash-free delivery. He bridges design intent and site execution so teams can build with confidence.",
+      },
+      {
+        name: "Vedran J.",
+        role: "BIM coordinator",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Vedran supports multidisciplinary BIM coordination and model quality checks, helping teams align technical requirements with practical site delivery.",
+      },
+      {
+        name: "Adin A.",
+        role: "BIM modeler",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Adin contributes to accurate installation modeling and drawing output, ensuring consistent data and clear documentation across project phases.",
+      },
+      {
+        name: "Nedim P.",
+        role: "MEP BIM specialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Nedim focuses on MEP model development and constructability, supporting clash-free coordination and execution-ready deliverables.",
+      },
+      {
+        name: "Wael A.",
+        role: "BIM engineer",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Wael strengthens technical BIM workflows by connecting design intent, installation constraints, and model consistency requirements.",
+      },
+      {
+        name: "Emir B.",
+        role: "BIM automation support",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Emir supports BIM automation and data standardization activities that improve model reliability, reduce repetitive tasks, and speed up delivery.",
+      },
+      {
+        name: "Dzenita S.",
+        role: "BIM documentation specialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Dzenita prepares structured BIM documentation and model outputs to keep communication clear between design, coordination, and site teams.",
       },
     ],
   },
@@ -63,15 +99,62 @@ const copy = {
       },
       {
         name: "Semir M.",
-        role: "MEP BIM-coördinator",
+        role: "MEP BIM-coordinator",
         linkedin: "https://www.linkedin.com/in/semir-mustajbasic-7957b3204/",
-        text: "Semir coördineert MEP-modellen met focus op uitvoerbaarheid, installatiesequencing en clashvrije oplevering. Hij verbindt ontwerpintentie met uitvoering op de bouwplaats.",
+        text: "Semir coordineert MEP-modellen met focus op uitvoerbaarheid, installatiesequencing en clashvrije oplevering. Hij verbindt ontwerpintentie met uitvoering op de bouwplaats.",
+      },
+      {
+        name: "Vedran J.",
+        role: "BIM-coordinator",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Vedran ondersteunt multidisciplinaire BIM-coordinatie en modelkwaliteitscontroles, zodat technische eisen goed aansluiten op de uitvoering op locatie.",
+      },
+      {
+        name: "Adin A.",
+        role: "BIM-modelleur",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Adin levert nauwkeurige installatiemodellen en tekenwerk, met consistente data en duidelijke documentatie in elke projectfase.",
+      },
+      {
+        name: "Nedim P.",
+        role: "MEP BIM-specialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Nedim richt zich op MEP-modelontwikkeling en uitvoerbaarheid, met focus op clashvrije coordinatie en uitvoering gereed opleveringen.",
+      },
+      {
+        name: "Wael A.",
+        role: "BIM-engineer",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Wael versterkt technische BIM-workflows door ontwerpintentie, installatiebeperkingen en modelconsistentie met elkaar te verbinden.",
+      },
+      {
+        name: "Emir B.",
+        role: "BIM-automatisering support",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Emir ondersteunt BIM-automatisering en datastandaardisatie om modelbetrouwbaarheid te verhogen, repetitief werk te verminderen en de doorlooptijd te versnellen.",
+      },
+      {
+        name: "Dzenita S.",
+        role: "BIM-documentatiespecialist",
+        linkedin: "https://www.linkedin.com/company/bim3dna",
+        text: "Dzenita verzorgt gestructureerde BIM-documentatie en modeloutput voor heldere afstemming tussen ontwerp, coordinatie en uitvoering.",
       },
     ],
   },
 };
 
-const profileImages = [Douwe, Alen, Emin, Semir];
+const profileImages: Array<string | null> = [
+  Douwe,
+  Alen,
+  Emin,
+  Semir,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+];
 
 function About() {
   const { language } = useLanguage();
@@ -99,14 +182,20 @@ function About() {
               key={profile.name}
               className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:grid-cols-[180px_minmax(0,1fr)] sm:items-start"
             >
-              <img
-                src={profileImages[index]}
-                alt={profile.name}
-                className={`h-40 w-40 rounded-xl object-cover ring-1 ring-white/20 ${
-                  profile.name === "Semir M." ? "object-[50%_20%]" : ""
-                }`}
-                loading="lazy"
-              />
+              {profileImages[index] ? (
+                <img
+                  src={profileImages[index] ?? undefined}
+                  alt={profile.name}
+                  className={`h-40 w-40 rounded-xl object-cover ring-1 ring-white/20 ${
+                    profile.name === "Semir M." ? "object-[50%_20%]" : ""
+                  }`}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-40 w-40 items-center justify-center rounded-xl border border-white/20 bg-white/[0.03] text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+                  No Image
+                </div>
+              )}
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-3">
                   <h2 className="text-2xl font-semibold">{profile.name}</h2>
