@@ -387,7 +387,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
         en: "Canal District Housing",
         nl: "Grachtengordel Wonen",
       },
-      location: "Schiphol, NL",
+      location: "Airport, NL",
       description: {
         en: "Heritage-sensitive housing with parametric facades tuned to daylight and coordinated with mechanical exhausts.",
         nl: "Monumentaal woonproject met parametrische gevels geoptimaliseerd voor daglicht en afgestemd op mechanische ventilatiekanalen.",
@@ -566,15 +566,15 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "scan-to-bim": [
     {
-      id: "schiphol-yotel",
+      id: "airport-yotel",
       title: {
-        en: "Schiphol",
-        nl: "Schiphol",
+        en: "Airport",
+        nl: "Airport",
       },
-      location: "Schiphol, NL",
+      location: "Airport, NL",
       description: {
-        en: "Project: Schiphol\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands.",
-        nl: "Project: Schiphol\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Schiphol, Nederland.",
+        en: "Project: Airport\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Airport, Netherlands.",
+        nl: "Project: Airport\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Airport, Nederland.",
       },
       year: 2025,
       scopes: [
