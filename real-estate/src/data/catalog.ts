@@ -6,11 +6,6 @@ import lifecycleImg from "../assets/4d5d6d04.png";
 import heroVarvik from "../assets/Varvik 3D view.jpg";
 import heroArch from "../assets/Arch01.png";
 import heroScript from "../assets/Script Automation.png";
-import installPrefabrication from "../assets/project_img_2.jpg";
-import installWorkshop from "../assets/project_img_3.jpg";
-import lifecycleDashboard from "../assets/project_img_4.jpg";
-import templateLibrary from "../assets/project_img_2.jpg";
-import clashNavisworks from "../assets/project_img_5.jpg";
 import yotelAll01 from "../assets/Scan to BIM/Yotelair/Yotelair Schiphol ALL.png";
 import yotelAll02 from "../assets/Scan to BIM/Yotelair/Yotelair Schiphol ALL 2.png";
 import tunnelsPtz01 from "../assets/Scan to BIM/Tunnels PTZ/Schermafbeelding1.png";
@@ -42,6 +37,7 @@ import labBuilding02 from "../assets/Mechanical Electrical/Lab Building 1 of 3.p
 import p5Maassluis01 from "../assets/Mechanical Electrical/P5 Maassluis.png";
 import p5Maassluis02 from "../assets/Mechanical Electrical/P5 Maassluis Woning.png";
 import reitdiepstraat01 from "../assets/Mechanical Electrical/Reitdiepstraat 1 of 2.png";
+import trainStation01 from "../assets/Mechanical Electrical/Train Station.png";
 
 import type { Language } from "../i18n/languages";
 
@@ -235,22 +231,31 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       year: 2025,
       scopes: [
         scope(
-          "architectural-bim",
-          "Architectural BIM",
-          "Architectonische BIM",
+          "varvik-3d-view",
+          "Varvik 3D View",
+          "Varvik 3D weergave",
           coordinationLead,
         ),
+      ],
+    },
+    {
+      id: "train-station",
+      title: {
+        en: "Train Station",
+        nl: "Train Station",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Electrical and mechanical coordination for train-station installation routing and execution-ready BIM alignment.",
+        nl: "Elektro- en werktuigbouwkundige coordinatie voor installatie-routes in een treinstation en uitvoeringsgereede BIM-afstemming.",
+      },
+      year: 2025,
+      scopes: [
         scope(
-          "mep-coordination",
-          "MEP Coordination",
-          "MEP-coördinatie",
-          installPrefabrication,
-        ),
-        scope(
-          "lod-350",
-          "LOD 350 Installables",
-          "LOD 350 Installaties",
-          installWorkshop,
+          "train-station-view-01",
+          "Train Station View",
+          "Train Station weergave",
+          trainStation01,
         ),
       ],
     },
@@ -465,7 +470,29 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       scopes: [scope("bimai-view-01", "View 1", "Weergave 1", aiAgentImg)],
     },
   ],
-  "clash-detection": [],
+  "clash-detection": [
+    {
+      id: "clash-coordination",
+      title: {
+        en: "Clash and Coordination",
+        nl: "Clash en coordinatie",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Project: Clash and Coordination\nDescription: Centralized clash detection and coordination review for installation model quality control.",
+        nl: "Project: Clash en coordinatie\nOmschrijving: Gecentraliseerde clashdetectie en coordinatiereview voor kwaliteitscontrole van installatiemodellen.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "clash-coordination-view-01",
+          "Clash & Coordination",
+          "Clash en coordinatie",
+          clashImg,
+        ),
+      ],
+    },
+  ],
   "scan-to-bim": [
     {
       id: "yotelair",
@@ -543,12 +570,27 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       ],
     },
   ],
-  "lifecycle-delivery": [],
+  "lifecycle-delivery": [
+    {
+      id: "delivery-4d-5d-6d",
+      title: {
+        en: "4D / 5D / 6D Delivery",
+        nl: "4D / 5D / 6D Levering",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Project: 4D / 5D / 6D Delivery\nDescription: Time, cost, and lifecycle model delivery aligned for operational handover.",
+        nl: "Project: 4D / 5D / 6D Levering\nOmschrijving: Tijd-, kosten- en lifecyclemodeloplevering afgestemd op operationele overdracht.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "4d-5d-6d-view-01",
+          "4D / 5D / 6D View",
+          "4D / 5D / 6D weergave",
+          lifecycleImg,
+        ),
+      ],
+    },
+  ],
 };
-
-
-
-
-
-
-
