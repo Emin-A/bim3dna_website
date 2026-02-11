@@ -1,5 +1,4 @@
 import coordinationLead from "../assets/Varvik 3D view.jpg";
-import automationImg from "../assets/script-automation.jpg";
 import clashImg from "../assets/Clash/Clash and Coordination.png";
 import scanImg from "../assets/Schermafbeelding 2026-02-07 102915.png";
 import templateImg from "../assets/Template Databse.png";
@@ -7,12 +6,8 @@ import lifecycleImg from "../assets/4d5d6d04.png";
 import heroVarvik from "../assets/Varvik 3D view.jpg";
 import heroArch from "../assets/Arch01.png";
 import heroScript from "../assets/Script Automation.png";
-import architectureFeature from "../assets/project_img_1.jpg";
-import architectureInterior from "../assets/project_img_4.jpg";
 import installPrefabrication from "../assets/project_img_2.jpg";
 import installWorkshop from "../assets/project_img_3.jpg";
-import automationSuite from "../assets/project_img_5.jpg";
-import automationDashboard from "../assets/project_img_6.jpg";
 import lifecycleDashboard from "../assets/project_img_4.jpg";
 import templateLibrary from "../assets/project_img_2.jpg";
 import clashNavisworks from "../assets/project_img_5.jpg";
@@ -22,6 +17,21 @@ import tunnelsPtz01 from "../assets/Scan to BIM/Tunnels PTZ/Schermafbeelding1.pn
 import tunnelsPtz02 from "../assets/Scan to BIM/Tunnels PTZ/Schermafbeelding2.png";
 import airportScan01 from "../assets/Scan to BIM/Airport/Schermafbeelding3.png";
 import assetManagement01 from "../assets/Assetmanagement/Schermafbeelding 2026-02-07 113859.png";
+import toolbarImg from "../assets/Scripts AI Automation/Toolbar.png";
+import aiAgentImg from "../assets/Scripts AI Automation/AI1.png";
+import phil0 from "../assets/Architecture/phil0.png";
+import phil1 from "../assets/Architecture/phil1.png";
+import phil2 from "../assets/Architecture/phil2.png";
+import phil3 from "../assets/Architecture/phil3.png";
+import phil4 from "../assets/Architecture/phil4.png";
+import phil5 from "../assets/Architecture/phil5.png";
+import phil6 from "../assets/Architecture/phil6.png";
+import skv0 from "../assets/Architecture/skv0.jpg";
+import skv1 from "../assets/Architecture/skv1.jpg";
+import skv2 from "../assets/Architecture/skv2.jpg";
+import skv3 from "../assets/Architecture/skv3.jpg";
+import skv4 from "../assets/Architecture/skv4.jpg";
+import skv5 from "../assets/Architecture/skv5.jpg";
 import chemicalPlant01 from "../assets/Mechanical Electrical/Chemical Plant 1.png";
 import chemicalPlant02 from "../assets/Mechanical Electrical/Chemical Plant 2.png";
 import chemicalPlant03 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 2.png";
@@ -382,136 +392,79 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "architecture-delivery": [
     {
-      id: "canal-district-housing",
+      id: "multi-purpose-building",
       title: {
-        en: "Canal District Housing",
-        nl: "Grachtengordel Wonen",
+        en: "Multi-purpose building",
+        nl: "Multi-purpose building",
       },
-      location: "Airport, NL",
+      location: "Netherlands",
       description: {
-        en: "Heritage-sensitive housing with parametric facades tuned to daylight and coordinated with mechanical exhausts.",
-        nl: "Monumentaal woonproject met parametrische gevels geoptimaliseerd voor daglicht en afgestemd op mechanische ventilatiekanalen.",
+        en: "Project: Multi-purpose building\nDescription: Coordinated architectural BIM with detailed model views across key design phases.",
+        nl: "Project: Multi-purpose building\nOmschrijving: Gecoördineerde architectuur-BIM met gedetailleerde modelviews door de belangrijkste ontwerpfases.",
       },
       year: 2025,
       scopes: [
-        scope(
-          "concept-authoring",
-          "Concept Authoring",
-          "Conceptmodellering",
-          architectureFeature,
-        ),
-        scope(
-          "facade-rationalisation",
-          "Facade Rationalisation",
-          "Geveloptimalisatie",
-          architectureInterior,
-        ),
-        scope(
-          "install-interface",
-          "Install Interface",
-          "Installatie-afstemming",
-          coordinationLead,
-        ),
+        scope("phil-0", "View 1", "Weergave 1", phil0),
+        scope("phil-1", "View 2", "Weergave 2", phil1),
+        scope("phil-2", "View 3", "Weergave 3", phil2),
+        scope("phil-3", "View 4", "Weergave 4", phil3),
+        scope("phil-4", "View 5", "Weergave 5", phil4),
+        scope("phil-5", "View 6", "Weergave 6", phil5),
+        scope("phil-6", "View 7", "Weergave 7", phil6),
       ],
     },
     {
-      id: "northshore-cultural-centre",
+      id: "shooting-club-building",
       title: {
-        en: "Northshore Cultural Centre",
-        nl: "Northshore Cultuurcentrum",
+        en: "Shooting club building",
+        nl: "Shooting club building",
       },
-      location: " · Groningen, NL",
+      location: "Netherlands",
       description: {
-        en: "Public programme where architectural detailing and mechanical routing were resolved together to preserve interior intent.",
-        nl: "Publiek programma waarbij architectonische detaillering en installatietracten samen zijn opgelost om de ruimtelijke kwaliteit te behouden.",
+        en: "Project: Shooting club building\nDescription: Architectural coordination and visualization for a shooting club facility.",
+        nl: "Project: Shooting club building\nOmschrijving: Architectonische coordinatie en visualisatie voor een schietclubgebouw.",
       },
-      year: 2024,
+      year: 2025,
       scopes: [
-        scope(
-          "spatial-programming",
-          "Spatial Programming",
-          "Ruimtelijke programmering",
-          architectureInterior,
-        ),
-        scope(
-          "technical-authoring",
-          "Technical Authoring",
-          "Technische uitwerking",
-          architectureFeature,
-        ),
-        scope(
-          "visualisation",
-          "Visualisation",
-          "Visualisatie",
-          automationSuite,
-        ),
+        scope("skv-0", "View 1", "Weergave 1", skv0),
+        scope("skv-1", "View 2", "Weergave 2", skv1),
+        scope("skv-2", "View 3", "Weergave 3", skv2),
+        scope("skv-3", "View 4", "Weergave 4", skv3),
+        scope("skv-4", "View 5", "Weergave 5", skv4),
+        scope("skv-5", "View 6", "Weergave 6", skv5),
       ],
     },
   ],
   "script-automation": [
     {
-      id: "pyrevit-standards-suite",
+      id: "revit-custom-toolbar",
       title: {
-        en: "PyRevit Standards Suite",
-        nl: "PyRevit Standaardensuite",
+        en: "Revit Custom Toolbar",
+        nl: "Revit Custom Toolbar",
       },
-      location: " · Global rollout",
+      location: "Netherlands",
       description: {
-        en: "Automation toolkit covering QA, sheet setup, and parameter governance for 200+ installation designers.",
-        nl: "Automatiseringssuite voor kwaliteitscontroles, tekenbladopzet en paramaterbeheer voor meer dan 200 installatiemodelleurs.",
+        en: "Project: Revit Custom Toolbar\nDescription: Custom Revit toolbar setup for streamlined BIM automation workflows.",
+        nl: "Project: Revit Custom Toolbar\nOmschrijving: Maatwerk Revit-toolbar voor gestroomlijnde BIM-automatiseringsworkflows.",
       },
       year: 2025,
-      scopes: [
-        scope("pyrevit", "pyRevit Toolkit", "pyRevit-toolkit", automationImg),
-        scope(
-          "batch-processing",
-          "Batch Processing",
-          "Batchverwerking",
-          automationSuite,
-        ),
-        scope(
-          "compliance",
-          "Compliance Checks",
-          "Conformiteitscontrole",
-          automationDashboard,
-        ),
-      ],
+      scopes: [scope("toolbar-view-01", "View 1", "Weergave 1", toolbarImg)],
     },
     {
-      id: "prefab-library-generator",
+      id: "bimai-agent",
       title: {
-        en: "Prefab Library Generator",
-        nl: "Prefab Bibliotheekgenerator",
+        en: "BIMAI_Agent",
+        nl: "BIMAI_Agent",
       },
-      location: " · Copenhagen, DK",
+      location: "Netherlands",
       description: {
-        en: "Scripts that transform manufacturer data into multi-discipline families complete with install instructions.",
-        nl: "Scripts die fabrikantsdata omzetten naar multidisciplinaire families inclusief installatieschema’s.",
+        en: "Project: BIMAI_Agent\nDescription: AI-assisted BIM automation and scripting support for Revit workflows.",
+        nl: "Project: BIMAI_Agent\nOmschrijving: AI-ondersteunde BIM-automatisering en scripting voor Revit-workflows.",
       },
-      year: 2024,
-      scopes: [
-        scope(
-          "dynamo",
-          "Dynamo Automation",
-          "Dynamo-automatisering",
-          automationSuite,
-        ),
-        scope(
-          "content-automation",
-          "Content Automation",
-          "Content-automatisering",
-          automationImg,
-        ),
-        scope(
-          "cost-data",
-          "Cost Data Binding",
-          "Kostendata-koppeling",
-          automationDashboard,
-        ),
-      ],
+      year: 2025,
+      scopes: [scope("bimai-view-01", "View 1", "Weergave 1", aiAgentImg)],
     },
-  ],
-  "clash-detection": [],
+  ],`r`n  "clash-detection": [],
   "scan-to-bim": [
     {
       id: "yotelair",
@@ -591,5 +544,9 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "lifecycle-delivery": [],
 };
+
+
+
+
 
 
