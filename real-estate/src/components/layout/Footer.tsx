@@ -1,45 +1,57 @@
-import type { ReactNode } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import logoMark from '../../assets/BIM3DNA Thumbnail.png'
-import { useLanguage } from '../../context/LanguageContext'
-import LanguageToggle from '../common/LanguageToggle'
-import type { Language } from '../../i18n/languages'
+import type { ReactNode } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import logoMark from "../../assets/BIM3DNA Thumbnail.png";
+import { useLanguage } from "../../context/LanguageContext";
+import LanguageToggle from "../common/LanguageToggle";
+import type { Language } from "../../i18n/languages";
 
 type FooterItem = {
-  label: string
-  href: string
-  type?: 'external' | 'internal' | 'section'
-}
+  label: string;
+  href: string;
+  type?: "external" | "internal" | "section";
+};
 
-type FooterColumn = { title: string; items: FooterItem[] }
+type FooterColumn = { title: string; items: FooterItem[] };
 
 const columnCopy: Record<
   Language,
-  { contact: string; company: string; connect: string; about: string; projects: string; disclaimer: string; languageLabel: string }
+  {
+    contact: string;
+    company: string;
+    connect: string;
+    about: string;
+    projects: string;
+    disclaimer: string;
+    languageLabel: string;
+  }
 > = {
   en: {
-    contact: 'Contact',
-    company: 'Company',
-    connect: 'Connect',
-    about: 'About BIM3DNA',
-    projects: 'Projects',
-    disclaimer: 'Disclaimer',
-    languageLabel: 'Language',
+    contact: "Contact",
+    company: "Company",
+    connect: "Connect",
+    about: "About BIM3DNA",
+    projects: "Projects",
+    disclaimer: "Disclaimer",
+    languageLabel: "Language",
   },
   nl: {
-    contact: 'Contact',
-    company: 'Bedrijf',
-    connect: 'Verbind',
-    about: 'Over BIM3DNA',
-    projects: 'Projecten',
-    disclaimer: 'Disclaimer',
-    languageLabel: 'Taal',
+    contact: "Contact",
+    company: "Bedrijf",
+    connect: "Verbind",
+    about: "Over BIM3DNA",
+    projects: "Projecten",
+    disclaimer: "Disclaimer",
+    languageLabel: "Taal",
   },
-}
+};
 
 const socials: FooterItem[] = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/bim3dna', type: 'external' },
-]
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/bim3dna",
+    type: "external",
+  },
+];
 
 const socialIcons: Record<string, ReactNode> = {
   LinkedIn: (
@@ -50,103 +62,121 @@ const socialIcons: Record<string, ReactNode> = {
       />
     </svg>
   ),
-}
+};
 
 function Footer() {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const { language } = useLanguage()
-  const labels = columnCopy[language]
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { language } = useLanguage();
+  const labels = columnCopy[language];
 
   const footerColumns: FooterColumn[] = [
     {
       title: labels.contact,
       items: [
-        { label: 'hello@bim3dna.com', href: 'mailto:hello@bim3dna.com', type: 'external' },
-        { label: '+31 (0)6 1234 5678', href: 'tel:+31612345678', type: 'external' },
         {
-          label: 'Keizersgracht 123, 1015 CJ Amsterdam',
-          href: 'https://maps.google.com?q=Keizersgracht+123+Amsterdam',
-          type: 'external',
+          label: "info@bim3dna.nl",
+          href: "mailto:info@bim3dna.nl",
+          type: "external",
+        },
+        {
+          label: "+31 (0) 625214367",
+          href: "tel:+31 (0) 625214367",
+          type: "external",
+        },
+        {
+          label: "Laura Wernet-Paskelhof 10 2548 BG ‘S-GRAVENHAGE",
+          href: "https://www.google.com/maps/place/Laura+Wernet-Paskelhof+10,+2548+BG+Den+Haag,+Netherlands/@52.0381053,4.2816467,693m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c5b152662b44ef:0xeb6143fabb17197e!8m2!3d52.0381053!4d4.2842216!16s%2Fg%2F11w2grnb7l?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D",
+          type: "external",
         },
       ],
     },
     {
       title: labels.company,
       items: [
-        { label: labels.about, href: '/about', type: 'internal' },
-        { label: labels.projects, href: '/projects', type: 'internal' },
-        { label: labels.disclaimer, href: '/disclaimer', type: 'internal' },
+        { label: labels.about, href: "/about", type: "internal" },
+        { label: labels.projects, href: "/projects", type: "internal" },
+        { label: labels.disclaimer, href: "/disclaimer", type: "internal" },
       ],
     },
     {
       title: labels.connect,
       items: [
-        { label: 'LinkedIn', href: 'https://www.linkedin.com/company/bim3dna', type: 'external' },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/company/bim3dna",
+          type: "external",
+        },
       ],
     },
-  ]
+  ];
 
   const handleItemClick = (item: FooterItem) => {
     if (
-      item.type === 'external' ||
-      item.href.startsWith('http') ||
-      item.href.startsWith('mailto:') ||
-      item.href.startsWith('tel:')
+      item.type === "external" ||
+      item.href.startsWith("http") ||
+      item.href.startsWith("mailto:") ||
+      item.href.startsWith("tel:")
     ) {
-      if (item.href.startsWith('mailto:') || item.href.startsWith('tel:')) {
-        window.location.href = item.href
+      if (item.href.startsWith("mailto:") || item.href.startsWith("tel:")) {
+        window.location.href = item.href;
       } else {
-        window.open(item.href, '_blank', 'noreferrer')
+        window.open(item.href, "_blank", "noreferrer");
       }
-      return
+      return;
     }
 
-    if (item.type === 'internal') {
-      navigate(item.href)
-      return
+    if (item.type === "internal") {
+      navigate(item.href);
+      return;
     }
 
-    if (item.type === 'section') {
-      if (location.pathname === '/') {
-        document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })
+    if (item.type === "section") {
+      if (location.pathname === "/") {
+        document
+          .getElementById(item.href)
+          ?.scrollIntoView({ behavior: "smooth" });
       } else {
-        navigate('/', { state: { scrollTo: item.href } })
+        navigate("/", { state: { scrollTo: item.href } });
       }
     }
-  }
+  };
 
   return (
-    <footer className='border-t border-white/10 bg-black text-white'>
-      <div className='mx-auto flex max-w-6xl flex-col gap-12 px-6 py-14 md:flex-row md:items-start md:justify-between'>
+    <footer className="border-t border-white/10 bg-black text-white">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-14 md:flex-row md:items-start md:justify-between">
         <button
-          type='button'
+          type="button"
           onClick={() => {
-            if (location.pathname === '/') {
-              window.scrollTo({ top: 0, behavior: 'smooth' })
+            if (location.pathname === "/") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
-              navigate('/', { state: { scrollTo: 'home' } })
+              navigate("/", { state: { scrollTo: "home" } });
             }
           }}
-          className='flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white transition hover:text-brand-accent'
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.4em] text-white transition hover:text-brand-accent"
         >
-          <img src={logoMark} alt='BIM3DNA logo' className='h-10 w-10 rounded-lg ring-1 ring-white/20' />
+          <img
+            src={logoMark}
+            alt="BIM3DNA logo"
+            className="h-10 w-10 rounded-lg ring-1 ring-white/20"
+          />
           <span>BIM3DNA</span>
         </button>
 
-        <div className='grid flex-1 gap-10 text-sm text-white/80 md:grid-cols-3'>
+        <div className="grid flex-1 gap-10 text-sm text-white/80 md:grid-cols-3">
           {footerColumns.map((column) => (
-            <div key={column.title} className='space-y-4'>
-              <h4 className='text-xs font-semibold uppercase tracking-[0.3em] text-white/60'>
+            <div key={column.title} className="space-y-4">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
                 {column.title}
               </h4>
-              <ul className='space-y-2'>
+              <ul className="space-y-2">
                 {column.items.map((item) => (
                   <li key={item.label}>
                     <button
-                      type='button'
+                      type="button"
                       onClick={() => handleItemClick(item)}
-                      className='text-left transition hover:text-brand-accent'
+                      className="text-left transition hover:text-brand-accent"
                     >
                       {item.label}
                     </button>
@@ -157,18 +187,18 @@ function Footer() {
           ))}
         </div>
 
-        <div className='flex flex-col items-end gap-4'>
-          <div className='flex flex-col gap-2 text-xs uppercase tracking-[0.3em] text-white/60'>
+        <div className="flex flex-col items-end gap-4">
+          <div className="flex flex-col gap-2 text-xs uppercase tracking-[0.3em] text-white/60">
             <span>{labels.languageLabel}</span>
-            <LanguageToggle variant='footer' />
+            <LanguageToggle variant="footer" />
           </div>
-          <div className='flex items-center gap-3'>
+          <div className="flex items-center gap-3">
             {socials.map((social) => (
               <button
                 key={social.label}
-                type='button'
+                type="button"
                 onClick={() => handleItemClick(social)}
-                className='flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent'
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:border-brand-accent/60 hover:text-brand-accent"
               >
                 {socialIcons[social.label]}
               </button>
@@ -177,11 +207,11 @@ function Footer() {
         </div>
       </div>
 
-      <div className='border-t border-white/10 py-6 text-center text-xs text-white/50'>
+      <div className="border-t border-white/10 py-6 text-center text-xs text-white/50">
         Copyright {new Date().getFullYear()} BIM3DNA. All rights reserved.
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
