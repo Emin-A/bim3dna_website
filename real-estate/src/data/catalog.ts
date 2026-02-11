@@ -464,7 +464,8 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       year: 2025,
       scopes: [scope("bimai-view-01", "View 1", "Weergave 1", aiAgentImg)],
     },
-  ],`r`n  "clash-detection": [],
+  ],
+  "clash-detection": [],
   "scan-to-bim": [
     {
       id: "yotelair",
@@ -544,6 +545,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "lifecycle-delivery": [],
 };
+
 
 
 
