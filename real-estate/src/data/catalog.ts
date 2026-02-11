@@ -511,59 +511,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       ],
     },
   ],
-  "clash-detection": [
-    {
-      id: "metro-interchange-upgrade",
-      title: {
-        en: "Metro Interchange Upgrade",
-        nl: "Metro Verkeersknooppunt Upgrade",
-      },
-      location: " · The Hague, NL",
-      description: {
-        en: "Weekly install workshops resolving dense MEP racks, penetrations, and staged sequences with Navisworks automations.",
-        nl: "Wekelijkse installatieworkshops voor dichte MEP-racks, sparingen en gefaseerde sequenties met Navisworks-automatiseringen.",
-      },
-      year: 2025,
-      scopes: [
-        scope("issue-tracking", "Issue Tracking", "Issue-tracking", clashImg),
-        scope(
-          "install-sequencing",
-          "Install Sequencing",
-          "Installatiesequenties",
-          clashNavisworks,
-        ),
-        scope(
-          "navisworks",
-          "Navisworks Automation",
-          "Navisworks-automatisering",
-          installWorkshop,
-        ),
-      ],
-    },
-    {
-      id: "data-centre-delivery",
-      title: {
-        en: "Data Centre Delivery",
-        nl: "Datacentrumlevering",
-      },
-      location: " · Frankfurt, DE",
-      description: {
-        en: "High-density plant validated through rule-based clashes and dashboards powering install readiness.",
-        nl: "Hoogwaardige technische installaties gevalideerd met regels-gebaseerde clashes en dashboards voor installatiereadiness.",
-      },
-      year: 2024,
-      scopes: [
-        scope("model-qa", "Model QA", "Model QA", clashImg),
-        scope(
-          "reporting",
-          "Reporting Dashboards",
-          "Rapportage dashboards",
-          clashNavisworks,
-        ),
-        scope("lod", "LOD 350 Review", "LOD 350 review", installPrefabrication),
-      ],
-    },
-  ],
+  "clash-detection": [],
   "scan-to-bim": [
     {
       id: "yotelair",
@@ -620,124 +568,28 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "template-database": [
     {
-      id: "enterprise-template-overhaul",
+      id: "asset-management",
       title: {
-        en: "Enterprise Template Overhaul",
-        nl: "Enterprise Template Vernieuwing",
+        en: "Asset Management",
+        nl: "Asset Management",
       },
-      location: " · EU & Middle East",
+      location: "Netherlands",
       description: {
-        en: "Unified libraries governing parameters, title blocks, and install kits across 14 studios.",
-        nl: "Geünificeerde bibliotheken met parameters, titelbladen en installatiesets voor 14 studio’s.",
+        en: "Project: Asset Management\nDescription: Structured BIM asset information and visual governance for operation-ready handover.",
+        nl: "Project: Asset Management\nOmschrijving: Gestructureerde BIM-assetinformatie en visuele governance voor beheergerichte oplevering.",
       },
       year: 2025,
       scopes: [
         scope(
-          "template-strategy",
-          "Template Strategy",
-          "Templatestrategie",
-          templateImg,
-        ),
-        scope(
-          "content-governance",
-          "Content Governance",
-          "Content governance",
-          templateLibrary,
-        ),
-        scope("training", "Team Training", "Teamtraining", automationDashboard),
-      ],
-    },
-    {
-      id: "infrastructure-bim-standards",
-      title: {
-        en: "Infrastructure BIM Standards",
-        nl: "Infrastructuur BIM-standaarden",
-      },
-      location: " · Benelux",
-      description: {
-        en: "Discipline-specific Revit standards with automated audits and install documentation.",
-        nl: "Disciplinegerichte Revit-standaarden met geautomatiseerde audits en installatiedocumentatie.",
-      },
-      year: 2024,
-      scopes: [
-        scope(
-          "standards",
-          "Standards Development",
-          "Standaardontwikkeling",
-          templateLibrary,
-        ),
-        scope(
-          "audit-automation",
-          "Audit Automation",
-          "Auditautomatisering",
-          automationSuite,
-        ),
-        scope(
-          "documentation",
-          "Install Documentation",
-          "Installatiedocumentatie",
-          templateImg,
+          "asset-management-view-01",
+          "Asset Overview",
+          "Assetoverzicht",
+          assetManagement01,
         ),
       ],
     },
   ],
-  "lifecycle-delivery": [
-    {
-      id: "4d-logistics-playbook",
-      title: {
-        en: "4D Logistics Playbook",
-        nl: "4D-logistiek handboek",
-      },
-      location: " · Vienna, AT",
-      description: {
-        en: "Construction phasing linked to installation kits, ensuring just-in-time delivery.",
-        nl: "Bouwfasering gekoppeld aan installatiesets voor just-in-time levering.",
-      },
-      year: 2025,
-      scopes: [
-        scope("4d-planning", "4D Planning", "4D-planning", lifecycleImg),
-        scope(
-          "logistics",
-          "Logistics Simulation",
-          "Logistieke simulatie",
-          lifecycleDashboard,
-        ),
-        scope(
-          "prefab",
-          "Prefab Readiness",
-          "Prefab gereed",
-          installPrefabrication,
-        ),
-      ],
-    },
-    {
-      id: "6d-operations-portal",
-      title: {
-        en: "6D Operations Portal",
-        nl: "6D operationsportaal",
-      },
-      location: " · Luxembourg",
-      description: {
-        en: "Facilities dashboards combining install data with predictive maintenance insights.",
-        nl: "Beheerdashboards met installatiedata en voorspellende onderhoudsinzichten.",
-      },
-      year: 2024,
-      scopes: [
-        scope(
-          "5d-cost",
-          "5D Cost Control",
-          "5D-kostencontrole",
-          lifecycleDashboard,
-        ),
-        scope("6d-fm", "6D FM Data", "6D-FM-data", lifecycleImg),
-        scope(
-          "powerbi",
-          "Power BI Dashboards",
-          "Power BI-dashboards",
-          automationDashboard,
-        ),
-      ],
-    },
-  ],
+  "lifecycle-delivery": [],
 };
+
 
