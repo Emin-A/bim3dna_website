@@ -1,6 +1,6 @@
 import coordinationLead from "../assets/Varvik 3D view.jpg";
 import automationImg from "../assets/script-automation.jpg";
-import clashImg from "../assets/Schermafbeelding 2026-01-27 174635.png";
+import clashImg from "../assets/Clash/Clash and Coordination.png";
 import scanImg from "../assets/Schermafbeelding 2026-02-07 102915.png";
 import templateImg from "../assets/Template Databse.png";
 import lifecycleImg from "../assets/4d5d6d04.png";
@@ -16,12 +16,12 @@ import automationDashboard from "../assets/project_img_6.jpg";
 import lifecycleDashboard from "../assets/project_img_4.jpg";
 import templateLibrary from "../assets/project_img_2.jpg";
 import clashNavisworks from "../assets/project_img_5.jpg";
-import yotel01 from "../assets/Yotelair Schiphol 01.png";
-import yotel02 from "../assets/Yotelair Schiphol 02.png";
-import yotel03 from "../assets/Yotelair Schiphol 03.png";
-import yotel04 from "../assets/Yotelair Schiphol 04.png";
-import yotel05 from "../assets/Yotelair Schiphol 05.png";
-import yotel06 from "../assets/Yotelair Schiphol 06.png";
+import yotelAll01 from "../assets/Scan to BIM/Yotelair/Yotelair Schiphol ALL.png";
+import yotelAll02 from "../assets/Scan to BIM/Yotelair/Yotelair Schiphol ALL 2.png";
+import tunnelsPtz01 from "../assets/Scan to BIM/Tunnels PTZ/Schermafbeelding1.png";
+import tunnelsPtz02 from "../assets/Scan to BIM/Tunnels PTZ/Schermafbeelding2.png";
+import airportScan01 from "../assets/Scan to BIM/Airport/Schermafbeelding3.png";
+import assetManagement01 from "../assets/Assetmanagement/Schermafbeelding 2026-02-07 113859.png";
 import chemicalPlant01 from "../assets/Mechanical Electrical/Chemical Plant 1.png";
 import chemicalPlant02 from "../assets/Mechanical Electrical/Chemical Plant 2.png";
 import chemicalPlant03 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 2.png";
@@ -566,49 +566,56 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
   ],
   "scan-to-bim": [
     {
-      id: "airport-yotel",
+      id: "yotelair",
       title: {
-        en: "Airport",
-        nl: "Airport",
+        en: "Yotelair",
+        nl: "Yotelair",
       },
       location: "Airport, NL",
       description: {
-        en: "Project: Airport\nClient: Yotel\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025\nAddress: Evert van de Beekstraat 202, 1118 CP Airport, Netherlands.",
-        nl: "Project: Airport\nKlant: Yotel\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025\nAdres: Evert van de Beekstraat 202, 1118 CP Airport, Nederland.",
+        en: "Project: Yotelair\nDescription: Replacement of the waste water pump system\nDate: 07/07/2025",
+        nl: "Project: Yotelair\nOmschrijving: Vervanging van het afvalwaterpompsysteem\nDatum: 07/07/2025",
       },
       year: 2025,
       scopes: [
-        scope("view-3d", "3D View", "3D-weergave", yotel01),
-        scope("top-view", "Top View", "Bovenaanzicht", yotel02),
-        scope(
-          "front-side-view",
-          "Front/Side View",
-          "Voor/zijaanzicht",
-          yotel03,
-        ),
-        scope(
-          "pointcloud-3d",
-          "3D View Point Cloud",
-          "3D-weergave puntwolk",
-          yotel04,
-        ),
-        scope(
-          "pointcloud-top",
-          "Top View Point Cloud",
-          "Bovenaanzicht puntwolk",
-          yotel05,
-        ),
-        scope(
-          "pointcloud-front-side",
-          "Front/Side Point Cloud View",
-          "Voor/zijaanzicht puntwolk",
-          yotel06,
-        ),
+        scope("view-01", "View 1", "Weergave 1", yotelAll01),
+        scope("view-02", "View 2", "Weergave 2", yotelAll02),
       ],
       extraInfo: {
         en: "For this project, a water pump system installation was delivered with coordinated layouts, equipment detailing, and point cloud verification to ensure precise site execution.",
         nl: "Voor dit project is een waterpompsysteeminstallatie gerealiseerd met gecoördineerde lay-outs, apparatuurdetaillering en puntwolkverificatie voor nauwkeurige uitvoering op locatie.",
       },
+    },
+    {
+      id: "tunnels-ptz",
+      title: {
+        en: "Tunnels PTZ",
+        nl: "Tunnels PTZ",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Project: Tunnels PTZ\nDescription: Scan-to-BIM conversion for tunnel context and PTZ-aligned model verification.",
+        nl: "Project: Tunnels PTZ\nOmschrijving: Scan-to-BIM omzetting voor tunnelcontext en PTZ-afgestemde modelverificatie.",
+      },
+      year: 2025,
+      scopes: [
+        scope("tunnels-ptz-view-01", "View 1", "Weergave 1", tunnelsPtz01),
+        scope("tunnels-ptz-view-02", "View 2", "Weergave 2", tunnelsPtz02),
+      ],
+    },
+    {
+      id: "airport-scan",
+      title: {
+        en: "Airport",
+        nl: "Airport",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Project: Airport\nDescription: Scan-to-BIM model extraction and alignment from captured site data.",
+        nl: "Project: Airport\nOmschrijving: Scan-to-BIM modelafleiding en uitlijning op basis van ingemeten locatiegegevens.",
+      },
+      year: 2025,
+      scopes: [scope("airport-view-01", "View 1", "Weergave 1", airportScan01)],
     },
   ],
   "template-database": [
@@ -733,3 +740,4 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
     },
   ],
 };
+
