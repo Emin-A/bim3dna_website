@@ -22,6 +22,16 @@ import yotel03 from "../assets/Yotelair Schiphol 03.png";
 import yotel04 from "../assets/Yotelair Schiphol 04.png";
 import yotel05 from "../assets/Yotelair Schiphol 05.png";
 import yotel06 from "../assets/Yotelair Schiphol 06.png";
+import chemicalPlant01 from "../assets/Mechanical Electrical/Chemical Plant 1.png";
+import chemicalPlant02 from "../assets/Mechanical Electrical/Chemical Plant 2.png";
+import chemicalPlant03 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 2.png";
+import chemicalPlant04 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 3.png";
+import hamerkwartierCut from "../assets/Mechanical Electrical/Hamerkwartier+ Cut View Zoomed in.png";
+import labBuilding01 from "../assets/Mechanical Electrical/Lab Building 1 of 2.png";
+import labBuilding02 from "../assets/Mechanical Electrical/Lab Building 1 of 3.png";
+import p5Maassluis01 from "../assets/Mechanical Electrical/P5 Maassluis.png";
+import p5Maassluis02 from "../assets/Mechanical Electrical/P5 Maassluis Woning.png";
+import reitdiepstraat01 from "../assets/Mechanical Electrical/Reitdiepstraat 1 of 2.png";
 
 import type { Language } from "../i18n/languages";
 
@@ -231,6 +241,141 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
           "LOD 350 Installables",
           "LOD 350 Installaties",
           installWorkshop,
+        ),
+      ],
+    },
+    {
+      id: "chemical-plant",
+      title: {
+        en: "Chemical Plant",
+        nl: "Chemical Plant",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Mechanical and electrical installation coordination for process-area routing, equipment interfaces, and execution-ready BIM detailing.",
+        nl: "Coordinatie van werktuigbouwkundige en elektrotechnische installaties voor procestracés, equipment-aansluitingen en uitvoeringsgereed BIM-detailwerk.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "chemical-overview-01",
+          "Chemical Plant View 1",
+          "Chemical Plant beeld 1",
+          chemicalPlant01,
+        ),
+        scope(
+          "chemical-overview-02",
+          "Chemical Plant View 2",
+          "Chemical Plant beeld 2",
+          chemicalPlant02,
+        ),
+        scope(
+          "chemical-layout-01",
+          "Process Layout 1",
+          "Proceslayout 1",
+          chemicalPlant03,
+        ),
+        scope(
+          "chemical-layout-02",
+          "Process Layout 2",
+          "Proceslayout 2",
+          chemicalPlant04,
+        ),
+      ],
+    },
+    {
+      id: "hamerkwartier",
+      title: {
+        en: "Hamerkwartier",
+        nl: "Hamerkwartier",
+      },
+      location: "Amsterdam, NL",
+      description: {
+        en: "Cut-view coordination for dense electrical and mechanical installation zones with focus on spatial clarity and buildability.",
+        nl: "Cut-view coordinatie voor dichte elektro- en werktuigbouwkundige installatiezones met focus op ruimtelijke duidelijkheid en uitvoerbaarheid.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "hamerkwartier-cut-view",
+          "Cut View Zoomed In",
+          "Cut view ingezoomd",
+          hamerkwartierCut,
+        ),
+      ],
+    },
+    {
+      id: "lab-building",
+      title: {
+        en: "Lab Building",
+        nl: "Lab Building",
+      },
+      location: "Netherlands",
+      description: {
+        en: "Installation BIM coordination for lab spaces, including technical routing and coordinated equipment zones for controlled environments.",
+        nl: "Installatie-BIM-coordinatie voor labruimten inclusief technische tracés en afgestemde equipmentzones voor gecontroleerde omgevingen.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "lab-building-view-01",
+          "Lab View 1",
+          "Lab beeld 1",
+          labBuilding01,
+        ),
+        scope(
+          "lab-building-view-02",
+          "Lab View 2",
+          "Lab beeld 2",
+          labBuilding02,
+        ),
+      ],
+    },
+    {
+      id: "p5-maassluis",
+      title: {
+        en: "P5 Maassluis",
+        nl: "P5 Maassluis",
+      },
+      location: "Maassluis, NL",
+      description: {
+        en: "Electrical and mechanical coordination package for residential installation works with model-driven detailing and execution alignment.",
+        nl: "Elektro- en werktuigbouwkundig coordinatiepakket voor woninginstallaties met modelgestuurde detaillering en uitvoeringsafstemming.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "p5-maassluis-main",
+          "P5 Maassluis",
+          "P5 Maassluis",
+          p5Maassluis01,
+        ),
+        scope(
+          "p5-maassluis-woning",
+          "P5 Maassluis Woning",
+          "P5 Maassluis Woning",
+          p5Maassluis02,
+        ),
+      ],
+    },
+    {
+      id: "reitdiepstraat",
+      title: {
+        en: "Reitdiepstraat",
+        nl: "Reitdiepstraat",
+      },
+      location: "Netherlands",
+      description: {
+        en: "MEP coordination model for installation scope alignment and clash-free execution in residential context.",
+        nl: "MEP-coordinatiemodel voor afstemming van installatiescope en clashvrije uitvoering in wooncontext.",
+      },
+      year: 2025,
+      scopes: [
+        scope(
+          "reitdiepstraat-view",
+          "Reitdiepstraat View",
+          "Reitdiepstraat beeld",
+          reitdiepstraat01,
         ),
       ],
     },
