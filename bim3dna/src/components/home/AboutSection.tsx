@@ -73,7 +73,7 @@ const teamTestimonials: TeamTestimonial[] = [
     image: Semir,
       },
   {
-    name: "Vedran J.",
+    name: "Adrian J.",
     role: {
       en: "BIM coordinator",
       nl: "BIM-coordinator",

@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
+import type { SyntheticEvent } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { projectPortfolios, serviceCategories } from '../data/catalog'
 import { useLanguage } from '../context/LanguageContext'
 import footerLogo from '../assets/BIM3DNA Thumbnail.png'
 
 type ScopeState = Record<string, string>
+const IMAGE_FALLBACK =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%23040e10'/%3E%3Ctext x='50%25' y='50%25' fill='%236f8b90' font-family='Arial' font-size='28' text-anchor='middle' dominant-baseline='middle'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 const copy = {
   en: {
@@ -48,6 +51,12 @@ function ProjectsCategory() {
 
   const handleScopeChange = (projectId: string, scopeId: string) => {
     setActiveScopes((prev) => ({ ...prev, [projectId]: scopeId }))
+  }
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
+    const image = event.currentTarget
+    if (image.dataset.fallbackApplied === 'true') return
+    image.dataset.fallbackApplied = 'true'
+    image.src = IMAGE_FALLBACK
   }
 
   return (
@@ -96,7 +105,7 @@ function ProjectsCategory() {
       <section className='py-20'>
         <div className='mx-auto max-w-6xl space-y-10 px-6'>
           <div className='h-1 w-full rounded-full bg-gradient-to-r from-transparent via-brand-accent/70 to-transparent' />
-          {projects.map((project) => {
+          {projects.map((project, projectIndex) => {
             const selectedScopeId = activeScopes[project.id] ?? project.scopes[0]?.id
             const selectedScope = project.scopes.find((scopeItem) => scopeItem.id === selectedScopeId) ?? project.scopes[0]
 
@@ -153,7 +162,10 @@ function ProjectsCategory() {
                     src={selectedScope?.image ?? project.scopes[0]?.image}
                     alt={`${project.title[language]} - ${selectedScope?.label[language] ?? ''}`}
                     className='h-full w-full object-cover'
-                    loading='lazy'
+                    loading={projectIndex === 0 ? 'eager' : 'lazy'}
+                    decoding='async'
+                    fetchPriority={projectIndex === 0 ? 'high' : 'low'}
+                    onError={handleImageError}
                   />
                   <img
                     src={footerLogo}

@@ -85,10 +85,10 @@ function Hero() {
               {labels.eyebrow}
               <span className="block h-px w-16 bg-brand-accent/60" />
             </span>
-            <h1 className="whitespace-pre-line text-4xl font-semibold uppercase tracking-[0.12em] text-white md:text-5xl">
+            <h1 className="max-w-full whitespace-pre-line break-words text-3xl font-semibold uppercase tracking-[0.06em] text-white md:text-5xl md:tracking-[0.12em]">
               {labels.heading}
             </h1>
-            <p className="max-w-2xl text-xl font-semibold leading-relaxed text-white/90 transition-opacity duration-700 ease-out md:text-2xl">
+            <p className="max-w-2xl break-words text-lg font-semibold leading-relaxed text-white/90 transition-opacity duration-700 ease-out md:text-2xl">
               {labels.description}
             </p>
           </div>

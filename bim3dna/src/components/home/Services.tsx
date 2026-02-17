@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom'
+import type { SyntheticEvent } from 'react'
 import { serviceCategories } from '../../data/catalog'
 import { useLanguage } from '../../context/LanguageContext'
 import footerLogo from '../../assets/BIM3DNA Thumbnail.png'
+
+const IMAGE_FALLBACK =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%23eaeaea'/%3E%3Ctext x='50%25' y='50%25' fill='%23708090' font-family='Arial' font-size='26' text-anchor='middle' dominant-baseline='middle'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 const copy = {
   en: {
@@ -40,6 +44,12 @@ function Services() {
 
   const handleClick = (slug: string) => {
     navigate(`/projects/${slug}`)
+  }
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
+    const image = event.currentTarget
+    if (image.dataset.fallbackApplied === 'true') return
+    image.dataset.fallbackApplied = 'true'
+    image.src = IMAGE_FALLBACK
   }
 
   return (
@@ -85,7 +95,7 @@ function Services() {
         </div>
 
         <div className='mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-          {serviceCategories.map((service) => (
+          {serviceCategories.map((service, index) => (
             <button
               key={service.slug}
               type='button'
@@ -97,7 +107,10 @@ function Services() {
                   src={service.background}
                   alt={service.title[language]}
                   className='absolute inset-0 h-full w-full scale-105 object-cover opacity-100'
-                  loading='lazy'
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  decoding='async'
+                  fetchPriority={index < 2 ? 'high' : 'low'}
+                  onError={handleImageError}
                 />
                 <div className='absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent' />
                 <img

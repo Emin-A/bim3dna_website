@@ -32,8 +32,7 @@ import chemicalPlant02 from "../assets/Mechanical Electrical/Chemical Plant 2.pn
 import chemicalPlant03 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 2.png";
 import chemicalPlant04 from "../assets/Mechanical Electrical/1.0.3-01 07 04 1 of 3.png";
 import hamerkwartierCut from "../assets/Mechanical Electrical/Hamerkwartier+ Cut View Zoomed in.png";
-import labBuilding01 from "../assets/Mechanical Electrical/Lab Building 1 of 2.png";
-import labBuilding02 from "../assets/Mechanical Electrical/Lab Building 1 of 3.png";
+import labBuilding10 from "../assets/Mechanical Electrical/Lab 10.png";
 import p5Maassluis01 from "../assets/Mechanical Electrical/P5 Maassluis.png";
 import p5Maassluis02 from "../assets/Mechanical Electrical/P5 Maassluis Woning.png";
 import reitdiepstraat01 from "../assets/Mechanical Electrical/Reitdiepstraat 1 of 2.png";
@@ -167,7 +166,7 @@ export const serviceCategories: ServiceCategory[] = [
     title: { en: "Scan to BIM", nl: "Scan naar BIM" },
     headline: {
       en: "Reality capture aligned with installation refurbishment plans.",
-      nl: "Reality capture afgestemd op renovatie- en installatieschema’s.",
+      nl: "Scan naar BIM afgestemd op renovatie- en installatieschema’s.",
     },
     summary: {
       en: "Point cloud intelligence converted into digital twins that guide installation upgrades.",
@@ -332,18 +331,7 @@ export const projectPortfolios: Record<string, ProjectPortfolioItem[]> = {
       },
       year: 2025,
       scopes: [
-        scope(
-          "lab-building-view-01",
-          "Lab View 1",
-          "Lab beeld 1",
-          labBuilding01,
-        ),
-        scope(
-          "lab-building-view-02",
-          "Lab View 2",
-          "Lab beeld 2",
-          labBuilding02,
-        ),
+        scope("lab-building-view-01", "Lab View", "Lab beeld", labBuilding10),
       ],
     },
     {

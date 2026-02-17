@@ -100,7 +100,11 @@ function Header() {
 
       {isMobileOpen && (
         <div className="md:hidden">
-          <div className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm" />
+          <div
+            className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsMobileOpen(false)}
+            aria-hidden="true"
+          />
           <div className="fixed inset-x-0 top-20 z-50 space-y-4 border-t border-white/10 bg-banner-gradient px-6 py-6">
             <div className="space-y-4">
               {navItems.map((item) => {

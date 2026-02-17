@@ -50,6 +50,7 @@ function ContactSection() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    event.currentTarget.reset()
     setStatus('submitted')
   }
 

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import type { SyntheticEvent } from "react";
 import { serviceCategories } from "../data/catalog";
 import { useLanguage } from "../context/LanguageContext";
 import footerLogo from "../assets/BIM3DNA Thumbnail.png";
+
+const IMAGE_FALLBACK =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%23040e10'/%3E%3Ctext x='50%25' y='50%25' fill='%236f8b90' font-family='Arial' font-size='28' text-anchor='middle' dominant-baseline='middle'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 const copy = {
   en: {
@@ -27,6 +31,15 @@ const copy = {
 function Projects() {
   const { language } = useLanguage();
   const labels = copy[language];
+
+  const handleImageError = (
+    event: SyntheticEvent<HTMLImageElement, Event>,
+  ) => {
+    const image = event.currentTarget;
+    if (image.dataset.fallbackApplied === "true") return;
+    image.dataset.fallbackApplied = "true";
+    image.src = IMAGE_FALLBACK;
+  };
 
   return (
     <main className="bg-black text-white">
@@ -63,7 +76,7 @@ function Projects() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 h-1 w-full rounded-full bg-gradient-to-r from-transparent via-brand-accent/70 to-transparent" />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceCategories.map((category) => (
+            {serviceCategories.map((category, index) => (
               <Link
                 key={category.slug}
                 to={`/projects/${category.slug}`}
@@ -74,7 +87,10 @@ function Projects() {
                     src={category.background}
                     alt={category.title[language]}
                     className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={index < 2 ? "high" : "low"}
+                    onError={handleImageError}
                   />
                   <img
                     src={footerLogo}

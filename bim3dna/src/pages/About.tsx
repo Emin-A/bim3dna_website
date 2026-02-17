@@ -36,10 +36,10 @@ const copy = {
         text: "Semir coordinates MEP models with a focus on constructability, installation sequencing, and clash-free delivery. He bridges design intent and site execution so teams can build with confidence.",
       },
       {
-        name: "Vedran J.",
+        name: "Adrian J.",
         role: "BIM coordinator",
         linkedin: "https://www.linkedin.com/company/bim3dna",
-        text: "Vedran supports multidisciplinary BIM coordination and model quality checks, helping teams align technical requirements with practical site delivery.",
+        text: "Adrian supports multidisciplinary BIM coordination and model quality checks, helping teams align technical requirements with practical site delivery.",
       },
       {
         name: "Adin A.",
@@ -110,10 +110,10 @@ const copy = {
         text: "Semir coordineert MEP-modellen met focus op uitvoerbaarheid, installatiesequencing en clashvrije oplevering. Hij verbindt ontwerpintentie met uitvoering op de bouwplaats.",
       },
       {
-        name: "Vedran J.",
+        name: "Adrian J.",
         role: "BIM-coordinator",
         linkedin: "https://www.linkedin.com/company/bim3dna",
-        text: "Vedran ondersteunt multidisciplinaire BIM-coordinatie en modelkwaliteitscontroles, zodat technische eisen goed aansluiten op de uitvoering op locatie.",
+        text: "Adrian ondersteunt multidisciplinaire BIM-coordinatie en modelkwaliteitscontroles, zodat technische eisen goed aansluiten op de uitvoering op locatie.",
       },
       {
         name: "Adin A.",
